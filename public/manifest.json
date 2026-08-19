@@ -1,0 +1,15 @@
+{
+  "short_name": "QEVRIX",
+  "name": "QEVRIX Enterprise Platform",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#020617",
+  "background_color": "#020617"
+}

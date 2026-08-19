@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* QEVRIX Enterprise Navy Blue Theme */
+    --qx-primary: #1E3A8A; /* Navy blue */
+    --qx-primary-hover: #1E40AF;
+    --qx-secondary: #3B82F6; /* Bright blue for accents */
+
+    /* Backgrounds */
+    --qx-background: #020617; /* Very dark slate for main bg */
+    --qx-background-alt: #0F172A; /* Slate 900 for gradient alt */
+    --qx-surface: #0B0F19; /* Card surface */
+    --qx-surface-hover: #141E30;
+
+    /* Borders */
+    --qx-border: #1E293B; /* Slate 800 */
+    --qx-border-hover: #334155;
+
+    /* Typography */
+    --qx-text: #F8FAFC; /* Slate 50 */
+    --qx-text-muted: #94A3B8; /* Slate 400 */
+    --qx-text-secondary: #CBD5E1; /* Slate 300 */
+    --qx-text-inverse: #020617;
+
+    /* Semantic */
+    --qx-success: #10B981;
+    --qx-warning: #F59E0B;
+    --qx-error: #EF4444;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-qx-background text-qx-text font-sans antialiased overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-qx-surface/60 backdrop-blur-md border border-qx-border;
+  }
+  
+  .glass-card {
+    @apply bg-qx-surface border border-qx-border rounded-xl transition-all duration-300 hover:bg-qx-surfaceHover;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-qx-textMuted;
+  }
+}
+
+/* Hide scrollbar for clean premium look */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--qx-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--qx-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--qx-border-hover);
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--qx-primary);
+  color: var(--qx-text);
+}
+
+/* Autofill and Form Elements Dark Styling Defaults */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #f8fafc !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0f172a inset !important;
+  box-shadow: 0 0 0px 1000px #0f172a inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Default native dark selects and textareas */
+input, select, textarea {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+option {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
