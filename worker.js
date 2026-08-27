@@ -187,17 +187,21 @@ async function handleContact(request, env) {
         const mailResponse = await fetch("https://api.mailchannels.net/tx/v1/send", {
           method: "POST",
           headers: {
-            "content-type": "application/json",
+            "content-type": "application/json"
           },
-          body: JSON.stringify(mailRequest),
+          body: JSON.stringify(mailRequest)
         });
 
+        const responseText = await mailResponse.text();
+
+        console.log("MAIL STATUS:", mailResponse.status);
+        console.log("MAIL RESPONSE:", responseText);
+
         if (!mailResponse.ok) {
-          console.error(`Failed to send email via MailChannels. Status: ${mailResponse.status} ${mailResponse.statusText}`);
-          const text = await mailResponse.text();
-          console.error(text);
+          console.error(`Failed to send email. Status: ${mailResponse.status}`);
+          console.error(responseText);
         } else {
-          console.log(`Email notification successfully sent for enquiry ID: ${insertedId}`);
+          console.log("EMAIL SENT SUCCESSFULLY");
         }
       } else {
         console.warn("MAIL_ADMIN_TO not configured in environment. Skipping email dispatch.");
