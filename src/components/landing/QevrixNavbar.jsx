@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Code2, Users, Briefcase, ArrowRight, Building, Workflow, GraduationCap } from 'lucide-react';
+import { Menu, X, ChevronDown, Code2, Users, ArrowRight, Building, Workflow } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 import CompanyLogo from '../ui/CompanyLogo';
@@ -55,12 +55,7 @@ export default function QevrixNavbar() {
       icon: Workflow,
       path: '/products/workforce',
     },
-    {
-      name: 'PrepIQ',
-      description: 'Digital learning and exam preparation tools for students.',
-      icon: GraduationCap,
-      path: '/products/prepiq',
-    }
+
   ];
 
   const handleNavClick = (path) => {
@@ -102,9 +97,9 @@ export default function QevrixNavbar() {
                 )}
                 {!isActive('/') && <div className="absolute bottom-6 left-0 w-0 h-[2px] bg-white/30 rounded-full group-hover:w-full transition-all duration-300" />}
               </Link>
-              
+
               {/* Services Dropdown */}
-              <div 
+              <div
                 className="relative group"
                 onMouseEnter={() => setShowServices(true)}
                 onMouseLeave={() => setShowServices(false)}
@@ -118,7 +113,7 @@ export default function QevrixNavbar() {
 
                 <AnimatePresence>
                   {showServices && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 15, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.98 }}
@@ -153,7 +148,7 @@ export default function QevrixNavbar() {
               </div>
 
               {/* Products Dropdown */}
-              <div 
+              <div
                 className="relative group"
                 onMouseEnter={() => setShowProducts(true)}
                 onMouseLeave={() => setShowProducts(false)}
@@ -167,7 +162,7 @@ export default function QevrixNavbar() {
 
                 <AnimatePresence>
                   {showProducts && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 15, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.98 }}
@@ -235,7 +230,7 @@ export default function QevrixNavbar() {
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -243,7 +238,7 @@ export default function QevrixNavbar() {
           >
             <div className="px-6 py-6 space-y-6 flex flex-col max-h-[85vh] overflow-y-auto">
               <Link to="/" className="text-base font-semibold text-white" onClick={() => setIsOpen(false)}>Home</Link>
-              
+
               {/* Mobile Services */}
               <div className="text-base font-semibold text-white">
                 Services

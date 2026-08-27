@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
-import { Terminal, Github, Trello, Server, Cpu, Rocket, ChevronRight, CheckCircle2, Cloud } from 'lucide-react';
+import { Github, Server, Cpu, Rocket, ChevronRight, Cloud } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function EngineeringHero() {
@@ -91,7 +91,7 @@ export default function EngineeringHero() {
                   <span className="text-[#2563EB]">public class</span> <span className="text-[#B45309]">AuthService</span> {'{'}<br/>
                   &nbsp;&nbsp;<span className="text-[#9333EA]">@PostMapping</span>(<span className="text-[#16A34A]">"/login"</span>)<br/>
                   &nbsp;&nbsp;<span className="text-[#2563EB]">public</span> <span className="text-[#B45309]">ResponseEntity</span> {'<'}<span className="text-[#2563EB]">?</span>{'>'} login() {'{'}<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#94A3B8]">// Enterprise authentication logic...</span><br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#94A3B8]">{"// Enterprise authentication logic..."}</span><br/>
                   &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#2563EB]">return</span> ResponseEntity.ok(token);<br/>
                   &nbsp;&nbsp;{'}'}<br/>
                   {'}'}

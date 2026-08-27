@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Lightbulb, Code2, Rocket, Briefcase, ChevronRight } from 'lucide-react';
+import { Target, Lightbulb, Code2, Briefcase } from 'lucide-react';
 
 export default function EngineeringAbout() {
   const cards = [

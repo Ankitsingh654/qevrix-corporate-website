@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Code, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';

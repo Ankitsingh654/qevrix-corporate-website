@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, Code2, Layout, Server, Briefcase, Database } from 'lucide-react';
+import { Code2, Layout, Server, Briefcase, Database } from 'lucide-react';
 
 export default function EngineeringMentors() {
   const mentors = [

@@ -93,18 +93,18 @@ export default function EngineeringFooter() {
             </div>
 
             <div className="flex items-center gap-3">
-              <a href="#" className="p-2 text-[#475569] hover:text-[#2563EB] border border-[#E2E8F0] bg-white hover:border-[#2563EB]/50 hover:bg-[#F5F9FF] rounded-lg transition-all duration-300 hover:scale-105 shadow-sm">
+              <button type="button" className="p-2 text-[#475569] hover:text-[#2563EB] border border-[#E2E8F0] bg-white hover:border-[#2563EB]/50 hover:bg-[#F5F9FF] rounded-lg transition-all duration-300 hover:scale-105 shadow-sm">
                 <Github size={16} />
-              </a>
-              <a href="#" className="p-2 text-[#475569] hover:text-[#2563EB] border border-[#E2E8F0] bg-white hover:border-[#2563EB]/50 hover:bg-[#F5F9FF] rounded-lg transition-all duration-300 hover:scale-105 shadow-sm">
+              </button>
+              <button type="button" className="p-2 text-[#475569] hover:text-[#2563EB] border border-[#E2E8F0] bg-white hover:border-[#2563EB]/50 hover:bg-[#F5F9FF] rounded-lg transition-all duration-300 hover:scale-105 shadow-sm">
                 <Linkedin size={16} />
-              </a>
-              <a href="#" className="p-2 text-[#475569] hover:text-[#2563EB] border border-[#E2E8F0] bg-white hover:border-[#2563EB]/50 hover:bg-[#F5F9FF] rounded-lg transition-all duration-300 hover:scale-105 shadow-sm">
+              </button>
+              <button type="button" className="p-2 text-[#475569] hover:text-[#2563EB] border border-[#E2E8F0] bg-white hover:border-[#2563EB]/50 hover:bg-[#F5F9FF] rounded-lg transition-all duration-300 hover:scale-105 shadow-sm">
                 <Twitter size={16} />
-              </a>
-              <a href="#" className="p-2 text-[#475569] hover:text-[#2563EB] border border-[#E2E8F0] bg-white hover:border-[#2563EB]/50 hover:bg-[#F5F9FF] rounded-lg transition-all duration-300 hover:scale-105 shadow-sm">
+              </button>
+              <button type="button" className="p-2 text-[#475569] hover:text-[#2563EB] border border-[#E2E8F0] bg-white hover:border-[#2563EB]/50 hover:bg-[#F5F9FF] rounded-lg transition-all duration-300 hover:scale-105 shadow-sm">
                 <Youtube size={16} />
-              </a>
+              </button>
             </div>
           </div>
         </div>

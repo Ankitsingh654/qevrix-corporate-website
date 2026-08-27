@@ -16,43 +16,43 @@ const DashboardFooter = () => {
               Building India's Next Generation Software Engineers.
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-200 transition-colors">
+              <button type="button" className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-200 transition-colors">
                 <Linkedin size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-900 hover:border-slate-300 transition-colors">
+              </button>
+              <button type="button" className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-900 hover:border-slate-300 transition-colors">
                 <Github size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 hover:text-red-600 hover:border-red-200 transition-colors">
+              </button>
+              <button type="button" className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 hover:text-red-600 hover:border-red-200 transition-colors">
                 <Youtube size={18} />
-              </a>
+              </button>
             </div>
           </div>
           
           <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
             <div>
               <h4 className="text-[11px] font-bold text-slate-900 uppercase tracking-widest mb-6">Platform</h4>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Engineering Program</a></li>
-                <li><a href="#" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Roadmap</a></li>
-                <li><a href="#" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Community</a></li>
-                <li><a href="#" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Status</a></li>
+              <ul className="space-y-4 flex flex-col items-start">
+                <li><button type="button" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Engineering Program</button></li>
+                <li><button type="button" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Roadmap</button></li>
+                <li><button type="button" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Community</button></li>
+                <li><button type="button" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Status</button></li>
               </ul>
             </div>
             
             <div>
               <h4 className="text-[11px] font-bold text-slate-900 uppercase tracking-widest mb-6">Resources</h4>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Documentation</a></li>
-                <li><a href="#" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Support</a></li>
-                <li><a href="#" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Contact</a></li>
+              <ul className="space-y-4 flex flex-col items-start">
+                <li><button type="button" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Documentation</button></li>
+                <li><button type="button" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Support</button></li>
+                <li><button type="button" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Contact</button></li>
               </ul>
             </div>
             
             <div>
               <h4 className="text-[11px] font-bold text-slate-900 uppercase tracking-widest mb-6">Legal</h4>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Terms of Service</a></li>
+              <ul className="space-y-4 flex flex-col items-start">
+                <li><button type="button" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Privacy Policy</button></li>
+                <li><button type="button" className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">Terms of Service</button></li>
               </ul>
             </div>
           </div>

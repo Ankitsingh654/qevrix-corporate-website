@@ -98,8 +98,6 @@ export default function Contact({ initialService }) {
   const [status, setStatus] = useState("idle"); // idle, loading, success, error
   const [validationErrors, setValidationErrors] = useState({});
 
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8082";
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
