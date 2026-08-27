@@ -255,10 +255,17 @@ export default function Contact({ initialService }) {
           setStatus("success");
           resetForm();
         } else {
+          try {
+            const errData = await response.json();
+            console.error("API Error Response:", errData);
+          } catch (e) {
+            console.error("API Error Status:", response.status, response.statusText);
+          }
           setStatus("error");
         }
       }
     } catch (err) {
+      console.error("Fetch API Error:", err);
       setStatus("error");
     }
   };

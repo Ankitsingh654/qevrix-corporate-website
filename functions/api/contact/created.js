@@ -1,5 +1,17 @@
 import { neon } from '@neondatabase/serverless';
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+export async function onRequestOptions() {
+  return new Response(null, {
+    headers: corsHeaders
+  });
+}
+
 export async function onRequestPost({ request, env }) {
   try {
     const body = await request.json();
@@ -45,7 +57,7 @@ export async function onRequestPost({ request, env }) {
         errors
       }), { 
         status: 400, 
-        headers: { 'Content-Type': 'application/json' } 
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
       });
     }
 
@@ -55,7 +67,7 @@ export async function onRequestPost({ request, env }) {
     // 1. Save to Neon PostgreSQL
     if (!env.DATABASE_URL) {
       console.error("DATABASE_URL is missing in environment variables.");
-      return new Response(JSON.stringify({ success: false, message: "Database configuration missing" }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+      return new Response(JSON.stringify({ success: false, message: "Database configuration missing" }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
 
     try {
@@ -79,7 +91,7 @@ export async function onRequestPost({ request, env }) {
       insertedId = result[0].id;
     } catch (dbError) {
       console.error("Database insert failed:", dbError);
-      return new Response(JSON.stringify({ success: false, message: "Internal Server Error" }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+      return new Response(JSON.stringify({ success: false, message: "Internal Server Error" }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
 
     // 2. Safe Email Notification using MailChannels (Cloudflare Native)
@@ -146,11 +158,11 @@ export async function onRequestPost({ request, env }) {
       }
     }), { 
       status: 201, 
-      headers: { 'Content-Type': 'application/json' } 
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
     });
 
   } catch (err) {
     console.error("Unhandled error in Cloudflare Pages Function:", err);
-    return new Response(JSON.stringify({ success: false, message: "Internal Server Error" }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+    return new Response(JSON.stringify({ success: false, message: "Internal Server Error" }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
   }
 }
