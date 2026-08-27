@@ -38,7 +38,13 @@ export default function CallToAction() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <Button onClick={() => {}} className="h-14 px-8 text-base shadow-[0_0_30px_rgba(59,130,246,0.3)] flex items-center gap-2 group/btn hover:scale-[1.02] transition-transform border border-qx-primary/50 relative overflow-hidden">
+                <Button onClick={() => {
+                  navigate('/?service=Schedule+Meeting#contact');
+                  setTimeout(() => {
+                    const el = document.getElementById('contact');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }} className="h-14 px-8 text-base shadow-[0_0_30px_rgba(59,130,246,0.3)] flex items-center gap-2 group/btn hover:scale-[1.02] transition-transform border border-qx-primary/50 relative overflow-hidden">
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover/btn:translate-x-[150%] transition-transform duration-700 ease-in-out"></span>
                   <span className="relative z-10 flex items-center gap-2">
                     <Calendar size={18} /> Schedule Meeting

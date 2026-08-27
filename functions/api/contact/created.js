@@ -3,7 +3,19 @@ import { neon } from '@neondatabase/serverless';
 export async function onRequestPost({ request, env }) {
   try {
     const body = await request.json();
-    const { fullName, company, email, phoneNo, interest, estimatedBudget, message, source } = body || {};
+    const { 
+      fullName, company, email, phoneNo, phone, interest, estimatedBudget, message, source, 
+      submissionType, meetingPurpose, preferredDate, preferredTime, agenda 
+    } = body || {};
+
+    const finalPhone = phoneNo || phone;
+    const finalSource = submissionType === 'meeting_request' ? 'Meeting Request Form' : (source || 'Website Enquiry Form');
+    const finalInterest = submissionType === 'meeting_request' ? meetingPurpose : interest;
+    
+    let finalMessage = message;
+    if (submissionType === 'meeting_request') {
+      finalMessage = `[Meeting Date: ${preferredDate}] [Time: ${preferredTime}]\n\nAgenda:\n${agenda || 'No agenda provided'}`;
+    }
 
     // Validation
     const errors = {};
@@ -13,9 +25,18 @@ export async function onRequestPost({ request, env }) {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       errors.email = "Please enter a valid email address.";
     }
-    if (!phoneNo || !phoneNo.trim()) errors.phoneNo = "Phone number is required.";
-    if (!interest || !interest.trim()) errors.interest = "Interest is required.";
-    if (!message || !message.trim()) errors.message = "Message details are required.";
+    
+    if (!finalPhone || !finalPhone.trim()) errors.phoneNo = "Phone number is required.";
+    if (!finalInterest || !finalInterest.trim()) errors.interest = "Interest/Purpose is required.";
+
+    if (submissionType !== 'meeting_request' && (!message || !message.trim())) {
+      errors.message = "Message details are required.";
+    }
+    
+    if (submissionType === 'meeting_request') {
+      if (!preferredDate) errors.preferredDate = "Preferred date is required.";
+      if (!preferredTime) errors.preferredTime = "Preferred time is required.";
+    }
 
     if (Object.keys(errors).length > 0) {
       return new Response(JSON.stringify({
@@ -48,11 +69,11 @@ export async function onRequestPost({ request, env }) {
         fullName,
         company || null,
         email,
-        phoneNo,
-        interest,
+        finalPhone,
+        finalInterest,
         estimatedBudget || null,
-        message,
-        source || 'Website Enquiry Form',
+        finalMessage,
+        finalSource,
         statusVal
       ]);
       insertedId = result[0].id;
@@ -70,18 +91,9 @@ export async function onRequestPost({ request, env }) {
         const budgetText = estimatedBudget && estimatedBudget.trim() ? estimatedBudget : "N/A";
         const formattedDate = new Date().toISOString().replace('T', ' ').substring(0, 19);
         
-        const emailContent = `QEVRIX Website Enquiry\n\n` +
-                `Enquiry ID: ${insertedId}\n` +
-                `Full Name: ${fullName}\n` +
-                `Company: ${companyText}\n` +
-                `Email: ${email}\n` +
-                `Phone: ${phoneNo}\n` +
-                `Interested Service: ${interest}\n` +
-                `Estimated Budget: ${budgetText}\n` +
-                `Requirement: ${message}\n` +
-                `Source: ${source || 'Website Enquiry Form'}\n` +
-                `Status: ${statusVal}\n` +
-                `Submitted At: ${formattedDate}\n`;
+        const emailContent = submissionType === 'meeting_request' ? 
+          `QEVRIX Meeting Request\n\nEnquiry ID: ${insertedId}\nFull Name: ${fullName}\nCompany: ${companyText}\nEmail: ${email}\nPhone: ${finalPhone}\nMeeting Purpose: ${finalInterest}\nPreferred Date: ${preferredDate}\nPreferred Time: ${preferredTime}\nAgenda: ${agenda || 'None'}\nSubmitted At: ${formattedDate}` : 
+          `QEVRIX Website Enquiry\n\nEnquiry ID: ${insertedId}\nFull Name: ${fullName}\nCompany: ${companyText}\nEmail: ${email}\nPhone: ${finalPhone}\nInterested Service: ${finalInterest}\nEstimated Budget: ${budgetText}\nRequirement: ${finalMessage}\nSource: ${finalSource}\nStatus: ${statusVal}\nSubmitted At: ${formattedDate}`;
 
         const mailRequest = {
           personalizations: [
@@ -93,7 +105,7 @@ export async function onRequestPost({ request, env }) {
             email: "no-reply@qevrix.in", 
             name: "QEVRIX Website",
           },
-          subject: `New QEVRIX Enquiry - ${interest}`,
+          subject: `New QEVRIX ${submissionType === 'meeting_request' ? 'Meeting Request' : 'Enquiry'} - ${finalInterest}`,
           content: [
             {
               type: "text/plain",
