@@ -25,7 +25,6 @@ export default {
 
     // 2. Static Asset Serving (SPA Fallback)
     try {
-      // env.ASSETS is provided automatically by Cloudflare Pages or Cloudflare Workers Assets
       let response = await env.ASSETS.fetch(request);
       
       // If the asset doesn't exist (e.g. for client-side routes like /services), return index.html
