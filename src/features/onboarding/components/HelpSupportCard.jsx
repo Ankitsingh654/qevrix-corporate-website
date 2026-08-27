@@ -1,6 +1,5 @@
 import React from 'react';
 import { Book, MessageSquare, Headphones, UserPlus, Clock, BookOpen } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const HelpSupportCard = () => {
   return (
@@ -8,33 +7,33 @@ const HelpSupportCard = () => {
       <h2 className="text-xl font-bold text-slate-900 mb-6 tracking-tight">Engineering Support</h2>
       
       <div className="space-y-2 mb-8">
-        <a href="#" className="flex items-center gap-4 text-slate-600 hover:text-blue-700 transition-colors group p-2 -mx-2 rounded-xl hover:bg-blue-50">
+        <button type="button" className="flex items-center gap-4 text-slate-600 hover:text-blue-700 transition-colors group p-2 -mx-2 rounded-xl hover:bg-blue-50 w-full text-left">
           <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors text-slate-500 group-hover:text-blue-600 border border-slate-100 group-hover:border-blue-200">
             <Book size={18} />
           </div>
           <span className="text-[15px] font-bold">Documentation</span>
-        </a>
+        </button>
         
-        <a href="#" className="flex items-center gap-4 text-slate-600 hover:text-blue-700 transition-colors group p-2 -mx-2 rounded-xl hover:bg-blue-50">
+        <button type="button" className="flex items-center gap-4 text-slate-600 hover:text-blue-700 transition-colors group p-2 -mx-2 rounded-xl hover:bg-blue-50 w-full text-left">
           <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors text-slate-500 group-hover:text-blue-600 border border-slate-100 group-hover:border-blue-200">
             <BookOpen size={18} />
           </div>
           <span className="text-[15px] font-bold">Engineering Guide</span>
-        </a>
+        </button>
 
-        <a href="#" className="flex items-center gap-4 text-slate-600 hover:text-blue-700 transition-colors group p-2 -mx-2 rounded-xl hover:bg-blue-50">
+        <button type="button" className="flex items-center gap-4 text-slate-600 hover:text-blue-700 transition-colors group p-2 -mx-2 rounded-xl hover:bg-blue-50 w-full text-left">
           <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors text-slate-500 group-hover:text-blue-600 border border-slate-100 group-hover:border-blue-200">
             <MessageSquare size={18} />
           </div>
           <span className="text-[15px] font-bold">FAQs</span>
-        </a>
+        </button>
         
-        <a href="#" className="flex items-center gap-4 text-slate-600 hover:text-blue-700 transition-colors group p-2 -mx-2 rounded-xl hover:bg-blue-50">
+        <button type="button" className="flex items-center gap-4 text-slate-600 hover:text-blue-700 transition-colors group p-2 -mx-2 rounded-xl hover:bg-blue-50 w-full text-left">
           <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors text-slate-500 group-hover:text-blue-600 border border-slate-100 group-hover:border-blue-200">
             <Headphones size={18} />
           </div>
           <span className="text-[15px] font-bold">Talk to Support</span>
-        </a>
+        </button>
         
         <div className="flex items-center justify-between p-2 -mx-2 rounded-xl opacity-60 cursor-not-allowed">
           <div className="flex items-center gap-4 text-slate-500">

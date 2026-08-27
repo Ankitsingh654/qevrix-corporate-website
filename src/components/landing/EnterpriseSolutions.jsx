@@ -99,7 +99,7 @@ export default function EnterpriseSolutions() {
             </button>
           </motion.div>
 
-          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-8">
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-6">
             {solutions.map((s, i) => {
               const Icon = s.icon;
               return (
@@ -109,25 +109,22 @@ export default function EnterpriseSolutions() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="group p-8 rounded-2xl border border-white/5 bg-qx-background/80 backdrop-blur-md hover:border-qx-primary/40 hover:bg-qx-primary/5 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:-translate-y-1 transition-all duration-300 relative flex flex-col"
+                  className="group p-8 rounded-[20px] bg-qx-surface border border-qx-border hover:border-qx-borderHover hover:bg-qx-surfaceHover hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col cursor-pointer"
                   onClick={handleCtaClick}
                 >
-                  {/* Accent Border Line */}
-                  <div className="absolute top-0 left-0 w-0 h-0.5 bg-qx-primary group-hover:w-full transition-all duration-500 rounded-t-2xl"></div>
-
-                  <div className="h-14 w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:text-qx-primary group-hover:scale-110 group-hover:bg-qx-primary/10 transition-all duration-300 mb-6 shadow-sm">
-                    <Icon size={26} />
+                  <div className="h-12 w-12 rounded-[14px] bg-qx-background border border-qx-border flex items-center justify-center text-qx-text group-hover:text-qx-primary group-hover:border-qx-primary/30 transition-colors duration-300 mb-6 shadow-sm">
+                    <Icon size={24} />
                   </div>
                   <div className="flex-1 flex flex-col">
-                    <h4 className="text-xl font-bold text-white mb-3 tracking-wide">{s.title}</h4>
-                    <p className="text-[15px] text-qx-textSecondary leading-relaxed mb-6">{s.desc}</p>
+                    <h4 className="text-[18px] font-bold text-qx-text mb-3 tracking-wide">{s.title}</h4>
+                    <p className="text-[14px] text-qx-textSecondary leading-relaxed mb-6">{s.desc}</p>
                     
                     {/* Compact Highlight Chips */}
                     <div className="flex flex-wrap gap-2 mt-auto mb-6">
                       {s.highlights.map((h, idx) => (
                         <span 
                           key={idx} 
-                          className="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs font-semibold text-qx-textSecondary group-hover:border-qx-primary/20 group-hover:text-white transition-colors duration-300"
+                          className="px-2.5 py-1 bg-qx-background rounded-md text-[11px] font-semibold tracking-wide text-qx-textMuted group-hover:text-qx-textSecondary transition-colors"
                         >
                           {h}
                         </span>
@@ -135,10 +132,10 @@ export default function EnterpriseSolutions() {
                     </div>
                   </div>
 
-                  <div className="mt-auto flex items-center text-sm font-semibold text-qx-textSecondary group-hover:text-qx-primary transition-colors">
+                  <div className="mt-auto flex items-center text-[13px] font-bold text-qx-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
                     <span className="flex items-center gap-2">
                       {s.cta}
-                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight size={14} />
                     </span>
                   </div>
                 </motion.div>

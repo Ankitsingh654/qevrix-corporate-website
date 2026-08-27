@@ -12,19 +12,17 @@ export default function QevrixFooter() {
   };
 
   return (
-    <footer className="bg-[#0B1020] border-t border-white/10 pt-[80px] pb-[40px] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-qx-primary/5 blur-[120px] rounded-full pointer-events-none" />
-
+    <footer className="bg-qx-backgroundAlt border-t border-qx-border pt-[60px] pb-[30px] relative overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20 text-center md:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12 text-center md:text-left">
           
           {/* Column 1 — QEVRIX (4 columns wide) */}
-          <div className="flex flex-col items-center md:items-start col-span-1 md:col-span-2 lg:col-span-4">
-            <Link to="/" className="inline-block mb-8 group">
+          <div className="flex flex-col items-center md:items-start col-span-1 md:col-span-2 lg:col-span-4 lg:pr-10 lg:border-r lg:border-qx-border">
+            <Link to="/" className="inline-block mb-6 group">
               <CompanyLogo theme="light" />
             </Link>
-            <div className="text-[15px] font-semibold text-white mb-2">Technology. Workforce. Infrastructure.</div>
-            <p className="text-sm text-qx-textSecondary leading-relaxed max-w-[280px]">
+            <div className="text-[14px] font-bold text-white tracking-wide mb-3">Technology. Workforce. Infrastructure.</div>
+            <p className="text-[13px] text-qx-textSecondary leading-relaxed max-w-[280px]">
               QEVRIX delivers practical technology, workforce and project solutions designed around business requirements.
             </p>
           </div>
@@ -33,8 +31,8 @@ export default function QevrixFooter() {
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
             {/* Column 2 — SERVICES */}
             <div className="flex flex-col items-center md:items-start">
-              <h4 className="font-semibold text-white mb-6 tracking-wide">Services</h4>
-              <ul className="space-y-4 text-[14px] text-qx-textSecondary">
+              <h4 className="font-bold text-white mb-5 tracking-wide text-[13px] uppercase">Services</h4>
+              <ul className="space-y-3 text-[13px] text-qx-textSecondary">
                 <li>
                   <button onClick={() => handleScroll('services')} className="hover:text-qx-primary transition-colors text-left">
                     IT & Software
@@ -65,8 +63,8 @@ export default function QevrixFooter() {
 
             {/* Column 3 — COMPANY */}
             <div className="flex flex-col items-center md:items-start">
-              <h4 className="font-semibold text-white mb-6 tracking-wide">Company</h4>
-              <ul className="space-y-4 text-[14px] text-qx-textSecondary">
+              <h4 className="font-bold text-white mb-5 tracking-wide text-[13px] uppercase">Company</h4>
+              <ul className="space-y-3 text-[13px] text-qx-textSecondary">
                 <li>
                   <a href="#home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-qx-primary transition-colors">
                     Home
@@ -92,8 +90,8 @@ export default function QevrixFooter() {
 
             {/* Column 4 — LEGAL */}
             <div className="flex flex-col items-center md:items-start">
-              <h4 className="font-semibold text-white mb-6 tracking-wide">Legal</h4>
-              <ul className="space-y-4 text-[14px] text-qx-textSecondary">
+              <h4 className="font-bold text-white mb-5 tracking-wide text-[13px] uppercase">Legal</h4>
+              <ul className="space-y-3 text-[13px] text-qx-textSecondary">
                 <li>
                   <Link to="/privacy" className="hover:text-qx-primary transition-colors">
                     Privacy Policy
@@ -115,7 +113,7 @@ export default function QevrixFooter() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[13px] text-qx-textMuted font-medium">
+        <div className="pt-6 border-t border-qx-border flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-qx-textMuted font-medium">
           <div>
             &copy; 2026 {companyConfig.companyName} All Rights Reserved.
           </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bell, CloudOff, Cloud, Settings, LogOut, ChevronDown } from 'lucide-react';
+import { Bell, Cloud, Settings, LogOut, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CompanyLogo from '../../../components/ui/CompanyLogo';
 

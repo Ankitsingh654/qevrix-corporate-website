@@ -86,9 +86,9 @@ export default function QevrixNavbar() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ${scrolled ? 'bg-[#060A14]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)]' : 'bg-transparent border-b border-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center h-20">
+    <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ${scrolled ? 'bg-[#080D1C]/85 backdrop-blur-[14px] border-b border-qx-border shadow-sm' : 'bg-transparent border-b border-transparent'}`}>
+      <div className="max-w-[1280px] mx-auto px-6">
+        <div className={`flex justify-between items-center transition-all duration-300 ${scrolled ? 'h-16' : 'h-24'}`}>
           <div className="flex items-center space-x-12">
             <Link to="/" className="flex items-center group">
               <CompanyLogo theme="light" />

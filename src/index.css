@@ -5,25 +5,25 @@
 @layer base {
   :root {
     /* QEVRIX Enterprise Navy Blue Theme */
-    --qx-primary: #1E3A8A; /* Navy blue */
-    --qx-primary-hover: #1E40AF;
-    --qx-secondary: #3B82F6; /* Bright blue for accents */
+    --qx-primary: #4F7DFF;
+    --qx-primary-hover: #638CFF;
+    --qx-secondary: #294A8A;
 
     /* Backgrounds */
-    --qx-background: #020617; /* Very dark slate for main bg */
-    --qx-background-alt: #0F172A; /* Slate 900 for gradient alt */
-    --qx-surface: #0B0F19; /* Card surface */
-    --qx-surface-hover: #141E30;
+    --qx-background: #080D1C;
+    --qx-background-alt: #0B1120;
+    --qx-surface: #111827;
+    --qx-surface-hover: #151E30;
 
     /* Borders */
-    --qx-border: #1E293B; /* Slate 800 */
-    --qx-border-hover: #334155;
+    --qx-border: rgba(148, 163, 184, 0.12);
+    --qx-border-hover: rgba(79, 125, 255, 0.40);
 
     /* Typography */
-    --qx-text: #F8FAFC; /* Slate 50 */
-    --qx-text-muted: #94A3B8; /* Slate 400 */
-    --qx-text-secondary: #CBD5E1; /* Slate 300 */
-    --qx-text-inverse: #020617;
+    --qx-text: #F1F5F9;
+    --qx-text-muted: #77839A;
+    --qx-text-secondary: #A8B3C7;
+    --qx-text-inverse: #080D1C;
 
     /* Semantic */
     --qx-success: #10B981;
@@ -37,8 +37,13 @@
     scroll-behavior: smooth;
   }
   
+  html, body {
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+  }
+  
   body {
-    @apply bg-qx-background text-qx-text font-sans antialiased overflow-x-hidden;
+    @apply bg-qx-background text-qx-text font-sans antialiased;
   }
 }
 

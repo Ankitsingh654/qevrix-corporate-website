@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Check, Shield, Briefcase, Award, Zap } from 'lucide-react';
+import { Users, Shield, Award, Zap } from 'lucide-react';
 import QevrixNavbar from '../components/landing/QevrixNavbar';
 import QevrixFooter from '../components/landing/QevrixFooter';
 import Contact from '../components/Contact';

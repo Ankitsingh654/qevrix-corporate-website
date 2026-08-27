@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Activity, Shield, Cpu, Layers } from 'lucide-react';
+import { ArrowRight, Activity, Shield } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -28,10 +28,10 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-5xl md:text-[72px] lg:text-[80px] font-extrabold text-qx-text tracking-tight mb-6 leading-[1.1]"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-qx-text tracking-tight mb-6 leading-[1.15]"
             >
-              Building Solutions. <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-qx-primary via-blue-400 to-qx-primaryHover drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+              Building Solutions.<br />
+              <span className="text-qx-primary">
                 Powering Progress.
               </span>
             </motion.h1>
@@ -40,31 +40,32 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="max-w-xl text-[22px] text-qx-textSecondary mb-8 leading-relaxed font-medium"
+              className="max-w-[500px] text-[18px] md:text-[20px] text-qx-textSecondary mb-8 leading-relaxed font-medium"
             >
               QEVRIX delivers technology, workforce, and civil solutions to help businesses build, operate, and grow with confidence.
             </motion.p>
 
-            {/* Premium product announcement & capabilities line */}
+            {/* Premium product announcement */}
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.25 }}
-              className="mb-8 space-y-4 text-left"
+              className="mb-8 max-w-[540px] text-left"
             >
-              <div className="text-[13px] font-bold tracking-wider uppercase text-qx-primary/90 flex items-center gap-2">
-                Services &bull; Digital Products &bull; Real-World Talent Experience
-              </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 max-w-xl flex items-center justify-between gap-4 backdrop-blur-md">
-                <span className="text-[13px] text-qx-textSecondary font-medium leading-relaxed">
-                  🚀 <strong className="text-white font-bold">Virtual Software Company:</strong> Gain practical experience in a structured, company-style software environment.
-                </span>
+              <div className="bg-qx-surface/80 border border-qx-border rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 backdrop-blur-md transition-colors hover:border-qx-primary/30">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 w-2 h-2 rounded-full bg-qx-primary animate-pulse flex-shrink-0" />
+                  <span className="text-[13px] text-qx-textSecondary font-medium leading-relaxed">
+                    <strong className="text-white font-bold block mb-0.5">Virtual Software Company</strong> 
+                    Gain practical experience in a structured software environment.
+                  </span>
+                </div>
                 <button 
                   onClick={() => {
                     navigate('/engineering');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="text-[13px] font-bold text-qx-primary hover:text-blue-400 transition-colors whitespace-nowrap flex-shrink-0"
+                  className="text-[13px] font-semibold text-qx-primary hover:text-qx-primaryHover transition-colors whitespace-nowrap flex-shrink-0"
                 >
                   Explore Program &rarr;
                 </button>
@@ -74,29 +75,18 @@ export default function HeroSection() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-[14px] md:text-[16px] font-semibold uppercase tracking-[0.18em] text-qx-text/75 mb-12 flex items-center gap-3"
-            >
-              <span className="w-8 h-[2px] bg-qx-primary/50"></span>
-              TECHNOLOGY • WORKFORCE • INFRASTRUCTURE
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-start gap-4"
+              className="flex flex-col sm:flex-row items-center sm:items-start gap-4"
             >
               <Button onClick={() => {
                 const element = document.getElementById('contact');
                 if (element) {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
-              }} className="h-14 px-8 text-base shadow-[0_0_30px_rgba(59,130,246,0.25)] flex items-center gap-2 group hover:scale-[1.02] transition-transform border border-qx-primary/50 overflow-hidden relative">
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-in-out"></span>
+              }} className="h-12 px-8 text-[15px] font-semibold shadow-sm flex items-center gap-2 group transition-transform bg-qx-primary hover:bg-qx-primaryHover text-white rounded-lg">
                 <span className="relative z-10 flex items-center gap-2">
                   Discuss Your Project
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </Button>
               <Button variant="secondary" onClick={() => {
@@ -104,8 +94,8 @@ export default function HeroSection() {
                 if (element) {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
-              }} className="h-14 px-8 text-base flex items-center gap-2 hover:scale-[1.02] hover:bg-white/5 transition-all duration-300 border border-qx-border hover:border-qx-primary/30">
-                Explore Services →
+              }} className="h-12 px-8 text-[15px] font-semibold flex items-center gap-2 transition-all duration-300 border border-qx-border bg-transparent hover:bg-qx-surface rounded-lg text-white">
+                Explore Services
               </Button>
             </motion.div>
           </motion.div>
@@ -184,6 +174,27 @@ export default function HeroSection() {
 
           </motion.div>
         </div>
+
+        {/* Premium Trust/Value Row */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-20 pt-8 border-t border-qx-border flex flex-wrap justify-between items-center gap-6"
+        >
+          <div className="text-[14px] font-semibold text-qx-textMuted tracking-wide">
+            Technology Solutions
+          </div>
+          <div className="text-[14px] font-semibold text-qx-textMuted tracking-wide">
+            Workforce Solutions
+          </div>
+          <div className="text-[14px] font-semibold text-qx-textMuted tracking-wide">
+            Infrastructure Support
+          </div>
+          <div className="text-[14px] font-semibold text-qx-textMuted tracking-wide">
+            Secure by Design
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -35,7 +35,7 @@ export default function AssignTask() {
         throw new Error(errMsg || "Task assign failed");
       }
 
-      const data = await response.json();
+      await response.json();
       alert("✅ Task Assigned Successfully!");
 
       // Reset form

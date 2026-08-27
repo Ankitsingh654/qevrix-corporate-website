@@ -52,7 +52,7 @@ export default function App() {
         <SplashScreen onComplete={() => setShowSplash(false)} />
       ) : (
         <Router>
-          <div className="bg-white min-h-screen">
+          <div className="flex flex-col min-h-screen">
             <Routes>
               {/* 🏠 Home Page */}
               <Route path="/" element={<LandingPage />} />
@@ -67,8 +67,8 @@ export default function App() {
               <Route path="/products" element={<ProductsPage />} />
               <Route path="/products/prepiq" element={<PrepIQPage />} />
               <Route path="/engineering" element={<EngineeringProgramPage />} />
-              <Route path="/products/workforce" element={<div className="pt-32 text-center h-screen bg-qx-background text-white">WorkforceOS - Coming Soon</div>} />
-              <Route path="/products/freelanz" element={<div className="pt-32 text-center h-screen bg-qx-background text-white">Freelanz - Coming Soon</div>} />
+              <Route path="/products/workforce" element={<div className="pt-32 text-center min-h-screen text-white">WorkforceOS - Coming Soon</div>} />
+              <Route path="/products/freelanz" element={<div className="pt-32 text-center min-h-screen text-white">Freelanz - Coming Soon</div>} />
 
               {/* 🔑 Auth Pages */}
               <Route path="/signup" element={<SignupPage />} />

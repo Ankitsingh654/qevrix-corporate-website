@@ -71,7 +71,7 @@ function AdminLogin() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition"
-              placeholder="admin@qevrix.com"
+              placeholder="admin@qevrix.in"
               required
             />
           </div>

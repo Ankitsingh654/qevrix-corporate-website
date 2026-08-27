@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Code2, Laptop, MobileFriendly, Check, ArrowRight, Shield, Cpu, RefreshCw, Layers } from 'lucide-react';
+import { Code2, Check } from 'lucide-react';
 import QevrixNavbar from '../components/landing/QevrixNavbar';
 import QevrixFooter from '../components/landing/QevrixFooter';
 import Contact from '../components/Contact';

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Building, Check, Layout, Hammer, Milestone, Briefcase } from 'lucide-react';
+import { Building, Layout, Hammer, Milestone } from 'lucide-react';
 import QevrixNavbar from '../components/landing/QevrixNavbar';
 import QevrixFooter from '../components/landing/QevrixFooter';
 import Contact from '../components/Contact';

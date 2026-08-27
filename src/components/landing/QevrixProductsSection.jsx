@@ -42,86 +42,85 @@ export default function QevrixProductsSection() {
           </p>
         </div>
 
-        {/* 3-Column Premium Product Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+        {/* Premium Product Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           
           {/* Card 1 — Featured: QEVRIX Virtual Software Company */}
           <motion.div 
-            whileHover={{ y: -8 }}
+            whileHover={{ y: -4 }}
             transition={{ duration: 0.3 }}
-            className="bg-gradient-to-b from-[#11182D] to-[#0A0E1A] border-2 border-qx-primary/40 rounded-3xl p-8 flex flex-col justify-between shadow-[0_15px_40px_rgba(59,130,246,0.1)] relative overflow-hidden lg:col-span-1"
+            className="bg-qx-surface border border-qx-border hover:border-qx-borderHover rounded-[20px] p-8 lg:p-10 flex flex-col lg:flex-row justify-between gap-10 shadow-sm relative overflow-hidden lg:col-span-2 group"
           >
-            {/* Ambient visual badge indicator */}
-            <div className="absolute top-0 right-0 bg-qx-primary/20 text-qx-primary text-[10px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-bl-xl border-l border-b border-qx-primary/30">
-              Featured Program
-            </div>
-
-            <div>
-              <div className="text-xs font-bold text-qx-primary uppercase tracking-wider mb-3">
-                TALENT EXPERIENCE PLATFORM
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="text-[11px] font-bold text-qx-primary uppercase tracking-widest">
+                  TALENT EXPERIENCE PLATFORM
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-qx-primary/10 text-qx-primary border border-qx-primary/20">
+                  Featured Program
+                </span>
               </div>
-              <h4 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                <Code2 className="text-qx-primary flex-shrink-0" size={24} />
+              <h4 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
+                <Code2 className="text-qx-primary flex-shrink-0" size={28} />
                 Virtual Software Company
               </h4>
-              <p className="text-sm text-qx-textSecondary leading-relaxed mb-6 font-medium">
+              <p className="text-[15px] text-qx-textSecondary leading-relaxed mb-8 max-w-xl">
                 A structured software work environment designed to help aspiring developers gain practical experience through project-based collaboration, real development workflows and professional engineering practices.
               </p>
 
-              <div className="border-t border-white/5 pt-6 mb-8">
-                <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Program Highlights</h5>
-                <ul className="space-y-3">
-                  {[
-                    "Project-Based Learning",
-                    "Team Collaboration",
-                    "Real Development Workflows",
-                    "Git & Version Control",
-                    "Code Review Practices",
-                    "Agile-Style Project Execution"
-                  ].map((feat, idx) => (
-                    <li key={idx} className="flex items-center gap-2.5 text-sm text-qx-textSecondary font-medium">
-                      <Check className="text-qx-primary flex-shrink-0" size={16} />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Button 
+                onClick={() => handleCTA('/engineering')} 
+                className="h-12 px-8 flex items-center justify-center gap-2 font-bold text-[14px] bg-qx-primary hover:bg-qx-primaryHover text-white rounded-lg transition-all"
+              >
+                Explore the Program
+                <ArrowRight size={16} />
+              </Button>
             </div>
-
-            <Button 
-              onClick={() => handleCTA('/engineering')} 
-              className="w-full h-12 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(59,130,246,0.3)] font-bold text-sm"
-            >
-              Explore the Program
-              <ArrowRight size={16} />
-            </Button>
+            
+            <div className="flex-1 lg:border-l lg:border-qx-border lg:pl-10">
+              <h5 className="text-[12px] font-bold text-white uppercase tracking-wider mb-6">Program Highlights</h5>
+              <ul className="space-y-4">
+                {[
+                  "Project-Based Learning",
+                  "Team Collaboration",
+                  "Real Development Workflows",
+                  "Git & Version Control",
+                  "Code Review Practices",
+                  "Agile-Style Project Execution"
+                ].map((feat, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-[14px] text-qx-textSecondary font-medium">
+                    <Check className="text-qx-primary flex-shrink-0" size={18} />
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
 
           {/* Card 2 — QEVRIX WorkforceOS */}
           <motion.div 
-            whileHover={{ y: -8 }}
+            whileHover={{ y: -4 }}
             transition={{ duration: 0.3 }}
-            className="bg-[#0D1324] border border-white/5 hover:border-qx-primary/30 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300"
+            className="bg-qx-surface border border-qx-border hover:border-qx-borderHover rounded-[20px] p-8 flex flex-col justify-between transition-all duration-300 group"
           >
             <div>
-              <div className="flex justify-between items-start mb-3">
-                <div className="text-xs font-bold text-qx-textSecondary uppercase tracking-wider">
+              <div className="flex justify-between items-start mb-4">
+                <div className="text-[11px] font-bold text-qx-textSecondary uppercase tracking-widest">
                   WORKFORCE TECHNOLOGY
                 </div>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 text-qx-textSecondary border border-white/10">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-qx-background text-qx-textMuted border border-qx-border">
                   In Development
                 </span>
               </div>
-              <h4 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+              <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
                 <Workflow className="text-qx-primary flex-shrink-0" size={24} />
                 QEVRIX WorkforceOS
               </h4>
-              <p className="text-sm text-qx-textSecondary leading-relaxed mb-6">
+              <p className="text-[14px] text-qx-textSecondary leading-relaxed mb-8">
                 A digital platform being developed to support workforce coordination, worker management and operational requirements.
               </p>
 
-              <div className="border-t border-white/5 pt-6 mb-8">
-                <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Core Capacities</h5>
+              <div className="border-t border-qx-border pt-6 mb-8">
                 <ul className="space-y-3">
                   {[
                     "Worker Profiles",
@@ -129,8 +128,8 @@ export default function QevrixProductsSection() {
                     "Requirement Management",
                     "Operational Visibility"
                   ].map((feat, idx) => (
-                    <li key={idx} className="flex items-center gap-2.5 text-sm text-qx-textSecondary">
-                      <Check className="text-qx-primary flex-shrink-0" size={16} />
+                    <li key={idx} className="flex items-center gap-2.5 text-[14px] text-qx-textSecondary">
+                      <Check className="text-qx-textMuted flex-shrink-0" size={16} />
                       <span>{feat}</span>
                     </li>
                   ))}
@@ -141,38 +140,36 @@ export default function QevrixProductsSection() {
             <Button 
               variant="secondary"
               onClick={() => handleCTA('/products/workforce')} 
-              className="w-full h-12 flex items-center justify-center gap-2 border-white/10 hover:border-qx-primary/30 text-sm font-semibold"
+              className="w-full h-12 flex items-center justify-center gap-2 border border-qx-border hover:bg-qx-background bg-transparent text-[14px] font-semibold text-white rounded-lg transition-all"
             >
               Explore WorkforceOS
-              <span className="text-xs opacity-75 font-normal">(Coming Soon)</span>
             </Button>
           </motion.div>
 
           {/* Card 3 — PrepIQ */}
           <motion.div 
-            whileHover={{ y: -8 }}
+            whileHover={{ y: -4 }}
             transition={{ duration: 0.3 }}
-            className="bg-[#0D1324] border border-white/5 hover:border-qx-primary/30 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300"
+            className="bg-qx-surface border border-qx-border hover:border-qx-borderHover rounded-[20px] p-8 flex flex-col justify-between transition-all duration-300 group"
           >
             <div>
-              <div className="flex justify-between items-start mb-3">
-                <div className="text-xs font-bold text-qx-textSecondary uppercase tracking-wider">
+              <div className="flex justify-between items-start mb-4">
+                <div className="text-[11px] font-bold text-qx-textSecondary uppercase tracking-widest">
                   EDUCATION TECHNOLOGY
                 </div>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-green-500/10 text-green-400 border border-green-500/25">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-qx-success/10 text-qx-success border border-qx-success/20">
                   Live
                 </span>
               </div>
-              <h4 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+              <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
                 <GraduationCap className="text-qx-primary flex-shrink-0" size={24} />
                 PrepIQ
               </h4>
-              <p className="text-sm text-qx-textSecondary leading-relaxed mb-6">
+              <p className="text-[14px] text-qx-textSecondary leading-relaxed mb-8">
                 A digital learning platform focused on structured exam preparation, practice and student progress tracking.
               </p>
 
-              <div className="border-t border-white/5 pt-6 mb-8">
-                <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Core Highlights</h5>
+              <div className="border-t border-qx-border pt-6 mb-8">
                 <ul className="space-y-3">
                   {[
                     "Mock Tests & Practice",
@@ -180,8 +177,8 @@ export default function QevrixProductsSection() {
                     "Structured Learning Modules",
                     "Self-Paced Practice"
                   ].map((feat, idx) => (
-                    <li key={idx} className="flex items-center gap-2.5 text-sm text-qx-textSecondary">
-                      <Check className="text-qx-primary flex-shrink-0" size={16} />
+                    <li key={idx} className="flex items-center gap-2.5 text-[14px] text-qx-textSecondary">
+                      <Check className="text-qx-textMuted flex-shrink-0" size={16} />
                       <span>{feat}</span>
                     </li>
                   ))}
@@ -192,7 +189,7 @@ export default function QevrixProductsSection() {
             <Button 
               variant="secondary"
               onClick={() => handleCTA('/products/prepiq')} 
-              className="w-full h-12 flex items-center justify-center gap-2 border-white/10 hover:border-qx-primary/30 text-sm font-semibold"
+              className="w-full h-12 flex items-center justify-center gap-2 border border-qx-border hover:bg-qx-background bg-transparent text-[14px] font-semibold text-white rounded-lg transition-all"
             >
               Explore PrepIQ
               <ArrowRight size={16} />

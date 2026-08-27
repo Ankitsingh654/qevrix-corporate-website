@@ -7,7 +7,7 @@ const getAIResponse = (userMessage) => {
   userMessage = userMessage.toLowerCase();
   if (userMessage.includes("java")) return "💻 We offer professional Java Development training and real projects.";
   if (userMessage.includes("internship")) return "🎓 You can apply for internships in Java, Web, and AI at QEVRIX.";
-  if (userMessage.includes("contact")) return "📞 You can reach us at contact@qevrix.com or visit our Contact page.";
+  if (userMessage.includes("contact")) return "📞 You can reach us at contact@qevrix.in or visit our Contact page.";
   if (userMessage.includes("ai")) return "🤖 Yes! We also provide AI-integrated software solutions and chatbot systems.";
   if (userMessage.includes("training")) return "🧑‍💻 Our training programs cover Java, Spring Boot, Web, and AI basics.";
   return "✨ I'm QEVRIX Assistant — I’ll connect you to our team soon! Meanwhile, explore our services.";
