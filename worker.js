@@ -152,11 +152,16 @@ async function handleContact(request, env) {
       );
     }
 
-    // 2. Safe Email Notification using MailChannels (Cloudflare Native)
+    // 2. Safe Email Notification using MailChannels
     try {
       const mailAdminTo = env.MAIL_ADMIN_TO;
+      const mailApiKey = env.MAILCHANNELS_API_KEY;
       
-      if (mailAdminTo) {
+      if (!mailApiKey) {
+        console.error("MAILCHANNELS_API_KEY is missing in environment variables. Email will not be sent.");
+      }
+
+      if (mailAdminTo && mailApiKey) {
         const companyText = company && company.trim() ? company : "N/A";
         const budgetText = estimatedBudget && estimatedBudget.trim() ? estimatedBudget : "N/A";
         const formattedDate = new Date().toISOString().replace('T', ' ').substring(0, 19);
@@ -187,7 +192,8 @@ async function handleContact(request, env) {
         const mailResponse = await fetch("https://api.mailchannels.net/tx/v1/send", {
           method: "POST",
           headers: {
-            "content-type": "application/json"
+            "content-type": "application/json",
+            "X-Api-Key": mailApiKey
           },
           body: JSON.stringify(mailRequest)
         });
