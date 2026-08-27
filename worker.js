@@ -118,8 +118,17 @@ async function handleContact(request, env) {
       ]);
       insertedId = result[0].id;
     } catch (dbError) {
-      console.error("Database insert failed:", dbError);
-      return new Response(JSON.stringify({ success: false, message: "Internal Server Error" }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+      console.error("DATABASE ERROR:", dbError);
+      console.error("DATABASE ERROR MESSAGE:", dbError?.message);
+      console.error("DATABASE ERROR CAUSE:", dbError?.cause);
+      return new Response(JSON.stringify({ 
+        success: false, 
+        message: dbError?.message || "Internal Server Error",
+        details: dbError?.toString()
+      }), { 
+        status: 500, 
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+      });
     }
 
     // 2. Safe Email Notification using MailChannels (Cloudflare Native)
