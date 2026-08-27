@@ -118,17 +118,38 @@ async function handleContact(request, env) {
       ]);
       insertedId = result[0].id;
     } catch (dbError) {
-      console.error("DATABASE ERROR:", dbError);
-      console.error("DATABASE ERROR MESSAGE:", dbError?.message);
-      console.error("DATABASE ERROR CAUSE:", dbError?.cause);
-      return new Response(JSON.stringify({ 
-        success: false, 
-        message: dbError?.message || "Internal Server Error",
-        details: dbError?.toString()
-      }), { 
-        status: 500, 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
-      });
+      const errorDetails = {
+        name: dbError?.name,
+        message: dbError?.message,
+        stack: dbError?.stack,
+        cause: dbError?.cause
+          ? {
+              name: dbError.cause?.name,
+              message: dbError.cause?.message,
+              stack: dbError.cause?.stack
+            }
+          : null
+      };
+
+      console.error(
+        "DATABASE_ERROR_DETAILS:",
+        JSON.stringify(errorDetails)
+      );
+
+      return new Response(
+        JSON.stringify({
+          success: false,
+          debug: "QEVRIX_DB_DEBUG_V2",
+          error: errorDetails
+        }),
+        {
+          status: 500,
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json"
+          }
+        }
+      );
     }
 
     // 2. Safe Email Notification using MailChannels (Cloudflare Native)
