@@ -21,6 +21,9 @@ import CivilConstructionService from "./pages/CivilConstructionService";
 // 🎓 Student Onboarding
 import StudentOnboardingPage from "./features/onboarding/pages/StudentOnboardingPage";
 
+// 👔 Company Info
+import FoundersPage from "./pages/FoundersPage";
+
 // ?? Internship Dashboard + Modules
 import InternshipDashboard from "./components/Dashboard/InternshipDashboard";
 import Profile from "./components/Dashboard/Profile";
@@ -69,6 +72,9 @@ export default function App() {
               <Route path="/engineering" element={<EngineeringProgramPage />} />
               <Route path="/products/workforce" element={<div className="pt-32 text-center min-h-screen text-white">WorkforceOS - Coming Soon</div>} />
               <Route path="/products/freelanz" element={<div className="pt-32 text-center min-h-screen text-white">Freelanz - Coming Soon</div>} />
+
+              {/* 🏢 Company Pages */}
+              <Route path="/founders" element={<FoundersPage />} />
 
               {/* 🔑 Auth Pages */}
               <Route path="/signup" element={<SignupPage />} />

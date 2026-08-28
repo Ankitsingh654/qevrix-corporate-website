@@ -1,5 +1,5 @@
 export const companyConfig = {
-  companyName: "QEVRIX Technologies Pvt Ltd.",
+  companyName: "QEVRIX  Pvt Ltd.",
   brandName: "QEVRIX",
   companyEmail: "contact@qevrix.in",
   companyPhone: "+91 7903682921",

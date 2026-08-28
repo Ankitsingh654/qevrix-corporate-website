@@ -204,6 +204,13 @@ export default function QevrixNavbar() {
                 About Us
                 <div className="absolute bottom-6 left-0 w-0 h-[2px] bg-white/30 rounded-full group-hover:w-full transition-all duration-300" />
               </a>
+              <Link to="/founders" className="relative text-sm font-semibold text-white/80 hover:text-white transition-colors py-8 group">
+                Founders
+                {isActive('/founders') && (
+                  <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 w-full h-[2px] bg-qx-primary rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
+                )}
+                {!isActive('/founders') && <div className="absolute bottom-6 left-0 w-0 h-[2px] bg-white/30 rounded-full group-hover:w-full transition-all duration-300" />}
+              </Link>
               <a href="#contact" onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }} className="relative text-sm font-semibold text-white/80 hover:text-white transition-colors py-8 group">
                 Contact
                 <div className="absolute bottom-6 left-0 w-0 h-[2px] bg-white/30 rounded-full group-hover:w-full transition-all duration-300" />
@@ -267,6 +274,7 @@ export default function QevrixNavbar() {
 
               <a href="#solutions" className="text-base font-semibold text-white" onClick={(e) => { e.preventDefault(); handleNavClick('#solutions'); }}>Solutions</a>
               <a href="#about" className="text-base font-semibold text-white" onClick={(e) => { e.preventDefault(); handleNavClick('#about'); }}>About Us</a>
+              <Link to="/founders" className="text-base font-semibold text-white" onClick={() => setIsOpen(false)}>Founders</Link>
               <a href="#contact" className="text-base font-semibold text-white" onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}>Contact</a>
               <div className="pt-6 border-t border-white/10 flex flex-col gap-3">
                 <Button onClick={() => handleNavClick('#contact')} className="w-full h-12 font-semibold">

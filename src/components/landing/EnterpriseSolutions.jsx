@@ -109,7 +109,7 @@ export default function EnterpriseSolutions() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="group p-8 rounded-[20px] bg-qx-surface border border-qx-border hover:border-qx-borderHover hover:bg-qx-surfaceHover hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col cursor-pointer"
+                  className="group p-8 rounded-[20px] bg-qx-surface/80 border border-white/5 hover:border-white/10 hover:bg-qx-surface hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 relative flex flex-col cursor-pointer"
                   onClick={handleCtaClick}
                 >
                   <div className="h-12 w-12 rounded-[14px] bg-qx-background border border-qx-border flex items-center justify-center text-qx-text group-hover:text-qx-primary group-hover:border-qx-primary/30 transition-colors duration-300 mb-6 shadow-sm">

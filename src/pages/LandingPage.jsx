@@ -7,6 +7,8 @@ import QevrixProductsSection from '../components/landing/QevrixProductsSection';
 import EnterpriseSolutions from '../components/landing/EnterpriseSolutions';
 import WhyQevrix from '../components/landing/WhyQevrix';
 import QevrixTrust from '../components/landing/QevrixTrust';
+import HowWeWork from '../components/landing/HowWeWork';
+import LeadershipSnippet from '../components/landing/LeadershipSnippet';
 import Contact from '../components/Contact';
 import CallToAction from '../components/landing/CallToAction';
 import QevrixFooter from '../components/landing/QevrixFooter';
@@ -24,8 +26,10 @@ export default function LandingPage() {
       <QevrixProducts />
       <QevrixProductsSection />
       <EnterpriseSolutions />
+      <HowWeWork />
       <WhyQevrix />
       <QevrixTrust />
+      <LeadershipSnippet />
       <Contact />
       <CallToAction />
       <QevrixFooter />

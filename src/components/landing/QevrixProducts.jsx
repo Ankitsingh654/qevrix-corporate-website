@@ -103,7 +103,7 @@ export default function QevrixProducts() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="group rounded-3xl border border-white/5 bg-qx-surface/50 backdrop-blur-md hover:border-qx-primary/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col h-full relative overflow-hidden"
+                className="group rounded-3xl border border-white/5 bg-qx-surface/50 backdrop-blur-md hover:border-white/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-500 cursor-pointer flex flex-col h-full relative overflow-hidden"
                 onClick={() => handleCtaClick(s.path)}
               >
                 {/* Top Gradient Glow */}
@@ -143,6 +143,39 @@ export default function QevrixProducts() {
             );
           })}
         </div>
+
+        {/* Featured Offering: Virtual Software Company */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16 bg-gradient-to-br from-qx-surface to-qx-background border border-white/10 rounded-[32px] p-8 md:p-12 relative overflow-hidden group cursor-pointer shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-all duration-500"
+          onClick={() => handleCtaClick('/engineering')}
+        >
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none group-hover:bg-blue-500/20 transition-colors duration-700" />
+          
+          <div className="relative z-10 grid md:grid-cols-3 gap-8 items-center">
+            <div className="md:col-span-2">
+              <div className="inline-block px-4 py-1.5 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest rounded-full mb-4">
+                Featured Program
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-blue-300 transition-all duration-500">
+                Virtual Software Company
+              </h3>
+              <p className="text-qx-textSecondary text-lg leading-relaxed max-w-xl">
+                Structured real-world software project experience for aspiring developers. Bridge the gap between learning and production engineering.
+              </p>
+            </div>
+            <div className="md:col-span-1 flex md:justify-end">
+              <button className="flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white font-semibold rounded-xl transition-all duration-300 group-hover:translate-x-2">
+                Explore Program
+                <ArrowRight size={20} />
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

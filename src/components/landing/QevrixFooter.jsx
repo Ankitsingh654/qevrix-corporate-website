@@ -76,6 +76,11 @@ export default function QevrixFooter() {
                   </button>
                 </li>
                 <li>
+                  <Link to="/founders" className="hover:text-qx-primary transition-colors text-left">
+                    Founders
+                  </Link>
+                </li>
+                <li>
                   <button onClick={() => handleScroll('why-qevrix')} className="hover:text-qx-primary transition-colors text-left">
                     Why QEVRIX
                   </button>
