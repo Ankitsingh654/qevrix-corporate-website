@@ -112,7 +112,7 @@ export default function EngineeringFooter() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#E2E8F0] flex flex-col md:flex-row justify-between items-center gap-6 text-[13px] text-[#94A3B8] font-medium">
           <div>
-            &copy; 2026 QEVRIX Technologies Pvt Ltd.
+            &copy; 2026 QEVRIX PRIVATE LIMITED. All rights reserved.
           </div>
           <div className="flex items-center gap-2">
             Made in India 🇮🇳

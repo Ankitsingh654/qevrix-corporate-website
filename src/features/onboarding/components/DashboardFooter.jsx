@@ -80,7 +80,7 @@ const DashboardFooter = () => {
               Made with <span className="text-red-500">❤️</span> in India
             </p>
             <p className="text-xs text-slate-400">
-              © 2026 QEVRIX Technologies Pvt. Ltd. All Rights Reserved.
+              © 2026 QEVRIX PRIVATE LIMITED. All Rights Reserved.
             </p>
           </div>
         </div>

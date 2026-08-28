@@ -1,9 +1,9 @@
 export const companyConfig = {
-  companyName: "QEVRIX  Pvt Ltd.",
+  companyName: "QEVRIX PRIVATE LIMITED",
   brandName: "QEVRIX",
   companyEmail: "contact@qevrix.in",
   companyPhone: "+91 7903682921",
-  companyLocation: "Noida, Uttar Pradesh, India",
+  companyLocation: "Unit No. 603-604, 6th Floor, B Bhutani Alphathum, NEPZ Post Office, Noida, Gautam Buddha Nagar - 201305, Uttar Pradesh, India",
   businessHours: "Monday – Saturday: 10:00 AM – 7:00 PM",
-  cin: null // Configurable but not invented
+  cin: "U62011UP2026PTC257375"
 };

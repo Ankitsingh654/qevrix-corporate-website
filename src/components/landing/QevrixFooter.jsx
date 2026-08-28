@@ -98,12 +98,12 @@ export default function QevrixFooter() {
               <h4 className="font-bold text-white mb-5 tracking-wide text-[13px] uppercase">Legal</h4>
               <ul className="space-y-3 text-[13px] text-qx-textSecondary">
                 <li>
-                  <Link to="/privacy" className="hover:text-qx-primary transition-colors">
+                  <Link to="/privacy-policy" className="hover:text-qx-primary transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link to="/terms" className="hover:text-qx-primary transition-colors">
+                  <Link to="/terms-and-conditions" className="hover:text-qx-primary transition-colors">
                     Terms & Conditions
                   </Link>
                 </li>
@@ -119,8 +119,14 @@ export default function QevrixFooter() {
 
         {/* Bottom Bar */}
         <div className="pt-6 border-t border-qx-border flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-qx-textMuted font-medium">
-          <div>
-            &copy; 2026 {companyConfig.companyName} All Rights Reserved.
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <span>&copy; 2026 {companyConfig.companyName}. All Rights Reserved.</span>
+            {companyConfig.cin && (
+              <>
+                <span className="hidden md:inline text-white/20">|</span>
+                <span>CIN: {companyConfig.cin}</span>
+              </>
+            )}
           </div>
           <div className="flex items-center gap-2">
             Made in India 🇮🇳

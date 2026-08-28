@@ -59,8 +59,8 @@ export default function App() {
             <Routes>
               {/* 🏠 Home Page */}
               <Route path="/" element={<LandingPage />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/terms" element={<TermsConditions />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-and-conditions" element={<TermsConditions />} />
               <Route path="/disclaimer" element={<Disclaimer />} />
               <Route path="/services/it-software" element={<ITSoftwareService />} />
               <Route path="/services/workforce" element={<WorkforceService />} />
