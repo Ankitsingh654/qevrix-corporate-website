@@ -200,14 +200,68 @@ async function handleContact(request, env) {
 
         const responseText = await mailResponse.text();
 
-        console.log("MAIL STATUS:", mailResponse.status);
-        console.log("MAIL RESPONSE:", responseText);
+        console.log("ADMIN EMAIL STATUS:", mailResponse.status);
+        console.log("ADMIN EMAIL RESPONSE:", responseText);
 
         if (!mailResponse.ok) {
-          console.error(`Failed to send email. Status: ${mailResponse.status}`);
+          console.error(`Failed to send admin email. Status: ${mailResponse.status}`);
           console.error(responseText);
         } else {
-          console.log("EMAIL SENT SUCCESSFULLY");
+          console.log("ADMIN EMAIL SENT SUCCESSFULLY");
+        }
+
+        // 2b. User Confirmation Email
+        if (email && email.trim()) {
+          try {
+            const userSubject = submissionType === 'meeting_request'
+              ? "We received your meeting request — QEVRIX"
+              : "We received your enquiry — QEVRIX";
+
+            const userBody = submissionType === 'meeting_request'
+              ? `Hi ${fullName},\n\nThank you for contacting QEVRIX.\n\nWe have successfully received your meeting request.\n\nOur team will review the requested meeting details and get back to you shortly.\n\nRegards,\nQEVRIX Team\ncontact@qevrix.in\nhttps://qevrix.in`
+              : `Hi ${fullName},\n\nThank you for contacting QEVRIX.\n\nWe have successfully received your enquiry regarding ${finalInterest}.\n\nOur team will review your requirements and get back to you shortly.\n\nRegards,\nQEVRIX Team\ncontact@qevrix.in\nhttps://qevrix.in`;
+
+            const userMailRequest = {
+              personalizations: [
+                {
+                  to: [{ email: email.trim() }],
+                }
+              ],
+              from: {
+                email: "no-reply@qevrix.in",
+                name: "QEVRIX",
+              },
+              subject: userSubject,
+              content: [
+                {
+                  type: "text/plain",
+                  value: userBody,
+                }
+              ]
+            };
+
+            const userMailResponse = await fetch("https://api.mailchannels.net/tx/v1/send", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                "X-Api-Key": mailApiKey
+              },
+              body: JSON.stringify(userMailRequest)
+            });
+
+            const userResponseText = await userMailResponse.text();
+            console.log("USER CONFIRMATION EMAIL STATUS:", userMailResponse.status);
+            console.log("USER CONFIRMATION EMAIL RESPONSE:", userResponseText);
+
+            if (!userMailResponse.ok) {
+              console.error(`Failed to send user confirmation email. Status: ${userMailResponse.status}`);
+              console.error(userResponseText);
+            } else {
+              console.log("USER CONFIRMATION EMAIL SENT SUCCESSFULLY");
+            }
+          } catch (userMailError) {
+            console.error("Failed to send user confirmation email. Error:", userMailError);
+          }
         }
       } else {
         console.warn("MAIL_ADMIN_TO not configured in environment. Skipping email dispatch.");
