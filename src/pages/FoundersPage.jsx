@@ -8,6 +8,28 @@ export default function FoundersPage() {
   React.useEffect(() => {
     document.title = "Founders | QEVRIX";
     window.scrollTo(0, 0);
+
+    const setCanonicalAndOg = () => {
+      // Canonical
+      let link = document.querySelector('link[rel="canonical"]');
+      if (!link) {
+        link = document.createElement('link');
+        link.rel = 'canonical';
+        document.head.appendChild(link);
+      }
+      link.href = 'https://qevrix.in/founders';
+
+      // og:url
+      let ogUrl = document.querySelector('meta[property="og:url"]');
+      if (!ogUrl) {
+        ogUrl = document.createElement('meta');
+        ogUrl.setAttribute('property', 'og:url');
+        document.head.appendChild(ogUrl);
+      }
+      ogUrl.setAttribute('content', 'https://qevrix.in/founders');
+    };
+
+    setCanonicalAndOg();
   }, []);
 
   return (

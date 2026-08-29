@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "routePath": "/api/contact/created",
+      "mountPath": "/api/contact",
+      "method": "OPTIONS",
+      "module": [
+        "api/contact/created.js:onRequestOptions"
+      ]
+    },
+    {
+      "routePath": "/api/contact/created",
+      "mountPath": "/api/contact",
+      "method": "POST",
+      "module": [
+        "api/contact/created.js:onRequestPost"
+      ]
+    }
+  ],
+  "baseURL": "/"
+}

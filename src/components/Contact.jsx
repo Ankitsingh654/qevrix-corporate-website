@@ -91,9 +91,14 @@ export default function Contact({ initialService }) {
     }
   }, [stateService, initialService, location.search]);
 
-  // When selected service changes, reset the category specific type
+  // When selected service changes, reset the category specific type unless it matches the state
   useEffect(() => {
-    setFormData(prev => ({ ...prev, requirementType: "", meetingPurpose: "" }));
+    setFormData(prev => ({ 
+      ...prev, 
+      requirementType: (location?.state?.requirementType && selectedService === resolveService(location?.state?.preselectService || location?.state?.interest || initialService)) ? location.state.requirementType : "", 
+      meetingPurpose: "" 
+    }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedService]);
 
   const [formData, setFormData] = useState({
@@ -102,7 +107,7 @@ export default function Contact({ initialService }) {
     email: "",
     phoneNo: "",
     estimatedBudget: "Not Sure Yet",
-    requirementType: "",
+    requirementType: location?.state?.requirementType || "",
     message: "",
     meetingPurpose: "",
     preferredDate: "",
@@ -196,17 +201,21 @@ export default function Contact({ initialService }) {
           return;
         }
 
-        const externalPayload = {
-          subject: `New QEVRIX Enquiry — ${selectedService}`,
-          name: formData.fullName,
-          company: formData.company,
-          email: formData.email,
-          phone: formData.phoneNo,
-          category: selectedService,
-          budget: formData.estimatedBudget,
-          message: finalMessage,
-          submissionType: selectedService === 'Schedule Meeting' ? 'meeting_request' : 'general'
-        };
+          const externalPayload = {
+            fullName: formData.fullName,
+            company: formData.company,
+            email: formData.email,
+            phoneNo: formData.phoneNo,
+            category: selectedService,
+            estimatedBudget: formData.estimatedBudget,
+            requirementType: formData.requirementType,
+            message: formData.message,
+            meetingPurpose: formData.meetingPurpose,
+            preferredDate: formData.preferredDate,
+            preferredTime: formData.preferredTime,
+            agenda: formData.agenda,
+            submissionType: selectedService === 'Schedule Meeting' ? 'meeting_request' : 'general'
+          };
 
         const response = await fetch(externalUrl, {
           method: "POST",

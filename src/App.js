@@ -23,6 +23,8 @@ import StudentOnboardingPage from "./features/onboarding/pages/StudentOnboarding
 
 // 👔 Company Info
 import FoundersPage from "./pages/FoundersPage";
+import CareersPage from "./pages/CareersPage";
+import CareerApplicationPage from "./pages/CareerApplicationPage";
 
 // ?? Internship Dashboard + Modules
 import InternshipDashboard from "./components/Dashboard/InternshipDashboard";
@@ -75,6 +77,8 @@ export default function App() {
 
               {/* 🏢 Company Pages */}
               <Route path="/founders" element={<FoundersPage />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/careers/apply" element={<CareerApplicationPage />} />
 
               {/* 🔑 Auth Pages */}
               <Route path="/signup" element={<SignupPage />} />
