@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import logoNew from '../../assets/logo-new.jpg';
+import logoNew from '../../assets/qevrix-logo.png';
 
 const CompanyLogo = ({ 
   className = "", 

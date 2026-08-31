@@ -131,14 +131,14 @@ export default function CareersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#060A14] font-sans text-qx-text selection:bg-qx-primary selection:text-white relative">
+    <div className="min-h-screen bg-qx-background font-sans text-qx-text selection:bg-qx-primary selection:text-white relative">
       <QevrixNavbar />
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A101D] to-[#060A14] z-0" />
+        {/* Lighter ambient glows */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-qx-primary/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-qx-primary/5 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-[1280px] mx-auto px-6 relative z-10 text-center mt-10">
           <motion.div
@@ -146,10 +146,10 @@ export default function CareersPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-              Careers at <span className="text-transparent bg-clip-text bg-gradient-to-r from-qx-primary to-blue-400">QEVRIX</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+              Careers at <span className="text-transparent bg-clip-text bg-gradient-to-r from-qx-primary to-[#FF9040]">QEVRIX</span>
             </h1>
-            <p className="text-lg md:text-xl text-qx-textSecondary max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               QEVRIX is building dedicated teams across technology, workforce, and infrastructure-related business areas. Join us in delivering practical solutions designed around real-world business requirements.
             </p>
           </motion.div>
@@ -157,10 +157,10 @@ export default function CareersPage() {
       </section>
 
       {/* Why Work With Us Section */}
-      <section className="py-20 relative border-t border-white/5">
+      <section className="py-20 relative border-t border-gray-200 bg-white">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Why Work With Us</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Why Work With Us</h2>
             <div className="w-20 h-1 bg-qx-primary mx-auto rounded-full"></div>
           </div>
           
@@ -172,13 +172,13 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/[0.02] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.04] transition-all duration-300"
+                className="bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] rounded-2xl p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:border-gray-200 transition-all duration-300"
               >
                 <div className="w-14 h-14 bg-qx-primary/10 rounded-xl flex items-center justify-center mb-6 text-qx-primary">
                   <item.icon size={28} />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-qx-textSecondary leading-relaxed">{item.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -186,10 +186,10 @@ export default function CareersPage() {
       </section>
 
       {/* Teams / Career Areas Section */}
-      <section className="py-20 relative bg-[#0A101D] border-t border-white/5">
+      <section className="py-20 relative bg-gray-50 border-t border-gray-200">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Career Areas</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Career Areas</h2>
             <div className="w-20 h-1 bg-qx-primary mx-auto rounded-full"></div>
           </div>
           
@@ -201,15 +201,15 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group p-6 bg-[#060A14] border border-white/5 hover:border-qx-primary/30 rounded-xl transition-all duration-300"
+                className="group p-6 bg-white shadow-sm border border-gray-200 hover:border-qx-primary/50 hover:shadow-md rounded-xl transition-all duration-300"
               >
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-white/5 rounded-lg group-hover:bg-qx-primary/10 text-white group-hover:text-qx-primary transition-colors">
+                  <div className="p-3 bg-gray-50 rounded-lg group-hover:bg-qx-primary/10 text-gray-600 group-hover:text-qx-primary transition-colors">
                     <area.icon size={24} />
                   </div>
-                  <h3 className="text-lg font-bold text-white">{area.title}</h3>
+                  <h3 className="text-lg font-bold text-gray-900">{area.title}</h3>
                 </div>
-                <p className="text-qx-textSecondary text-sm leading-relaxed">{area.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{area.description}</p>
               </motion.div>
             ))}
           </div>
@@ -217,7 +217,7 @@ export default function CareersPage() {
       </section>
 
       {/* Current Opportunities & Internships */}
-      <section className="py-20 relative border-t border-white/5">
+      <section className="py-20 relative border-t border-gray-200 bg-white">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
@@ -227,19 +227,19 @@ export default function CareersPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white/[0.02] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center relative overflow-hidden"
+              className="bg-white shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-gray-100 rounded-2xl p-10 flex flex-col items-center justify-center text-center relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-qx-primary/5 rounded-full blur-[40px]" />
-              <h3 className="text-2xl font-bold text-white mb-6">Current Opportunities</h3>
-              <div className="py-8 px-12 bg-white/5 border border-white/10 rounded-xl mb-8 w-full">
-                <p className="text-white/60 font-medium text-lg">No current openings</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Current Opportunities</h3>
+              <div className="py-8 px-12 bg-gray-50 border border-gray-200 rounded-xl mb-8 w-full">
+                <p className="text-gray-500 font-medium text-lg">No current openings</p>
               </div>
-              <p className="text-qx-textSecondary mb-8">
+              <p className="text-gray-600 mb-8">
                 We are always looking for talented individuals. Submit your profile for future consideration.
               </p>
               <button 
                 onClick={handleApplyClick}
-                className="flex items-center gap-2 bg-qx-primary hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors z-10"
+                className="flex items-center gap-2 bg-qx-primary hover:bg-qx-primaryHover text-white px-8 py-3 rounded-lg font-semibold transition-colors z-10"
               >
                 Submit Profile <ArrowRight size={18} />
               </button>
@@ -251,14 +251,14 @@ export default function CareersPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white/[0.02] border border-white/10 rounded-2xl p-10 flex flex-col justify-center relative overflow-hidden"
+              className="bg-white shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-gray-100 rounded-2xl p-10 flex flex-col justify-center relative overflow-hidden"
             >
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/5 rounded-full blur-[40px]" />
-              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-white mb-6 border border-white/10">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-qx-primary/5 rounded-full blur-[40px]" />
+              <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center text-qx-primary mb-6 border border-gray-200">
                 <Lightbulb size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Early Careers & Internships</h3>
-              <p className="text-qx-textSecondary leading-relaxed text-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Early Careers & Internships</h3>
+              <p className="text-gray-600 leading-relaxed text-lg">
                 Future internship and early-career opportunities will be announced through QEVRIX.
               </p>
             </motion.div>
@@ -268,19 +268,19 @@ export default function CareersPage() {
       </section>
 
       {/* How to Apply Section */}
-      <section className="py-20 relative bg-[#0A101D] border-t border-white/5">
+      <section className="py-20 relative bg-gray-50 border-t border-gray-200">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">How to Apply</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">How to Apply</h2>
             <div className="w-20 h-1 bg-qx-primary mx-auto rounded-full mb-8"></div>
-            <p className="text-qx-textSecondary max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Our application process is straightforward and designed to help us understand your capabilities and potential fit within our teams.
             </p>
           </div>
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2 relative">
             {/* Connecting Line */}
-            <div className="hidden md:block absolute top-1/2 left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-qx-primary/10 via-qx-primary/30 to-qx-primary/10 -translate-y-1/2 z-0" />
+            <div className="hidden md:block absolute top-1/2 left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-qx-primary/10 via-qx-primary/40 to-qx-primary/10 -translate-y-1/2 z-0" />
             
             {applicationSteps.map((step, index) => (
               <motion.div
@@ -291,10 +291,10 @@ export default function CareersPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="flex flex-col items-center z-10 w-full md:w-auto"
               >
-                <div className="w-16 h-16 bg-[#060A14] border-2 border-qx-primary/30 rounded-full flex items-center justify-center text-qx-primary shadow-[0_0_15px_rgba(59,130,246,0.15)] mb-4 bg-[#060A14]">
+                <div className="w-16 h-16 bg-white border-2 border-qx-primary/30 rounded-full flex items-center justify-center text-qx-primary shadow-md mb-4">
                   <step.icon size={24} />
                 </div>
-                <h4 className="text-white font-semibold text-center text-sm md:text-base max-w-[120px]">{step.title}</h4>
+                <h4 className="text-gray-900 font-semibold text-center text-sm md:text-base max-w-[120px]">{step.title}</h4>
               </motion.div>
             ))}
           </div>

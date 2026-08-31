@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Code2, Check } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Code2, Check, ArrowRight } from 'lucide-react';
 import QevrixNavbar from '../components/landing/QevrixNavbar';
 import QevrixFooter from '../components/landing/QevrixFooter';
 import Contact from '../components/Contact';
 import { Button } from '../components/ui/Button';
 
 export default function ITSoftwareService() {
+  const navigate = useNavigate();
   useEffect(() => {
     document.title = "IT & Software Solutions | QEVRIX";
     window.scrollTo(0, 0);
@@ -67,22 +68,22 @@ export default function ITSoftwareService() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#060A14] font-sans text-qx-text relative">
+    <div className="min-h-screen bg-qx-background font-sans text-qx-text relative">
       <QevrixNavbar />
 
       {/* Breadcrumb */}
-      <div className="pt-28 pb-4 bg-qx-background/40 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 text-xs font-semibold tracking-wider text-qx-textSecondary uppercase flex items-center gap-2">
+      <div className="pt-28 pb-4 bg-gray-50 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 text-xs font-semibold tracking-wider text-gray-600 uppercase flex items-center gap-2">
           <Link to="/" className="hover:text-qx-primary transition-colors">Home</Link>
           <span>/</span>
           <span className="hover:text-qx-primary transition-colors">Services</span>
           <span>/</span>
-          <span className="text-white">IT & Software</span>
+          <span className="text-gray-900">IT & Software</span>
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-qx-background/60 overflow-hidden border-b border-white/5">
+      <section className="relative py-20 bg-white overflow-hidden border-b border-gray-200">
         <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-qx-primary/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -90,13 +91,13 @@ export default function ITSoftwareService() {
               <span className="w-4 h-[2px] bg-qx-primary"></span>
               IT & SOFTWARE SOLUTIONS
             </h2>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight leading-tight">
               Technology Built <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-qx-primary to-blue-400">
                 Around Your Business.
               </span>
             </h1>
-            <p className="text-qx-textSecondary text-lg leading-relaxed mb-8 max-w-xl">
+            <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-xl">
               QEVRIX builds practical software, digital platforms, AI solutions and business automation designed around real business requirements.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -109,7 +110,7 @@ export default function ITSoftwareService() {
             </div>
           </div>
           <div className="hidden lg:flex justify-center">
-            <div className="p-8 bg-qx-surface/60 border border-white/5 rounded-3xl backdrop-blur-xl shadow-2xl relative">
+            <div className="p-8 bg-qx-surface/60 border border-gray-200 rounded-3xl backdrop-blur-xl shadow-2xl relative">
               <div className="absolute inset-0 bg-gradient-to-br from-qx-primary/10 to-transparent pointer-events-none rounded-3xl" />
               <Code2 size={120} className="text-qx-primary animate-pulse-slow" />
             </div>
@@ -121,39 +122,51 @@ export default function ITSoftwareService() {
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h3 className="text-sm font-bold text-qx-primary tracking-widest uppercase mb-4">WHAT WE OFFER</h3>
-          <h4 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Our Core Offerings</h4>
+          <h4 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">Our Core Offerings</h4>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {offers.map((offer, idx) => (
-            <div key={idx} className="bg-qx-surface/40 border border-white/5 p-6 rounded-2xl hover:border-qx-primary/30 transition-all duration-300">
+          {offers.map((offer, idx) => {
+            const portfolioUrl = `/portfolio/${offer.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+            return (
+            <div 
+              key={idx} 
+              onClick={() => navigate(portfolioUrl)}
+              className="bg-qx-surface/40 border border-gray-200 p-6 rounded-2xl hover:border-qx-primary/30 transition-all duration-300 group cursor-pointer relative"
+            >
               <div className="h-10 w-10 rounded-lg bg-qx-primary/10 border border-qx-primary/20 flex items-center justify-center text-qx-primary mb-4 font-bold text-sm">
                 0{idx + 1}
               </div>
-              <h5 className="text-lg font-bold text-white mb-2">{offer.title}</h5>
-              <p className="text-sm text-qx-textSecondary leading-relaxed">{offer.desc}</p>
+              <h5 className="text-lg font-bold text-gray-900 mb-2">{offer.title}</h5>
+              <p className="text-sm text-gray-600 leading-relaxed mb-6">{offer.desc}</p>
+              
+              {/* Arrow */}
+              <div className="absolute bottom-6 right-6 text-qx-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+                <ArrowRight size={18} />
+              </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 bg-[#080C19] border-t border-b border-white/5 relative">
+      <section id="pricing" className="py-24 bg-[#080C19] border-t border-b border-gray-200 relative">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h3 className="text-xs font-bold text-qx-primary tracking-widest uppercase mb-4">TRANSPARENT STARTING PRICES</h3>
-            <h4 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Flexible Pricing for Your Requirements</h4>
-            <p className="text-qx-textSecondary text-sm max-w-2xl mx-auto leading-relaxed">
+            <h4 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">Flexible Pricing for Your Requirements</h4>
+            <p className="text-gray-600 text-sm max-w-2xl mx-auto leading-relaxed">
               Every project is different. These prices represent starting estimates and the final proposal depends on scope, complexity, integrations and delivery requirements.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pricing.map((p, idx) => (
-              <div key={idx} className="bg-qx-surface/50 border border-white/5 hover:border-qx-primary/30 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
+              <div key={idx} className="bg-qx-surface/50 border border-gray-200 hover:border-qx-primary/30 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300">
                 <div>
-                  <h5 className="text-lg font-bold text-white mb-2">{p.name}</h5>
-                  <div className="text-3xl font-black text-qx-primary mb-4">{p.price}<span className="text-xs text-qx-textSecondary font-semibold"> starting</span></div>
-                  <p className="text-sm text-qx-textSecondary leading-relaxed mb-6">{p.desc}</p>
+                  <h5 className="text-lg font-bold text-gray-900 mb-2">{p.name}</h5>
+                  <div className="text-3xl font-black text-qx-primary mb-4">{p.price}<span className="text-xs text-gray-600 font-semibold"> starting</span></div>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-6">{p.desc}</p>
                 </div>
                 <Button onClick={() => handleScroll('contact')} variant="secondary" className="w-full text-xs font-bold py-2">
                   Discuss Requirements
@@ -162,7 +175,7 @@ export default function ITSoftwareService() {
             ))}
           </div>
 
-          <p className="text-center text-xs text-qx-textMuted mt-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-center text-xs text-gray-500 mt-8 max-w-2xl mx-auto leading-relaxed">
             * Final pricing is determined after understanding the project scope, complexity, integrations, timeline and any applicable third-party costs.
           </p>
         </div>
@@ -172,18 +185,18 @@ export default function ITSoftwareService() {
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h3 className="text-xs font-bold text-qx-primary tracking-widest uppercase mb-4">ONGOING SUPPORT</h3>
-          <h4 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Support That Grows With Your Business</h4>
+          <h4 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">Support That Grows With Your Business</h4>
         </div>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {supportPlans.map((plan, idx) => (
-            <div key={idx} className="bg-qx-surface/40 border border-white/5 p-6 rounded-2xl flex flex-col justify-between hover:border-qx-primary/30 transition-all duration-300">
+            <div key={idx} className="bg-qx-surface/40 border border-gray-200 p-6 rounded-2xl flex flex-col justify-between hover:border-qx-primary/30 transition-all duration-300">
               <div>
-                <h5 className="text-base font-bold text-white mb-2">{plan.name}</h5>
+                <h5 className="text-base font-bold text-gray-900 mb-2">{plan.name}</h5>
                 <div className="text-2xl font-black text-qx-primary mb-6">{plan.price}</div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-center gap-2 text-xs text-qx-textSecondary">
+                    <li key={fIdx} className="flex items-center gap-2 text-xs text-gray-600">
                       <Check size={14} className="text-qx-primary flex-shrink-0" />
                       <span>{feat}</span>
                     </li>
@@ -197,17 +210,17 @@ export default function ITSoftwareService() {
           ))}
         </div>
 
-        <p className="text-center text-xs text-qx-textMuted mt-8">
+        <p className="text-center text-xs text-gray-500 mt-8">
           Note: Support scope and response requirements are finalized in the service agreement.
         </p>
       </section>
 
       {/* How We Work */}
-      <section className="py-24 bg-[#080C19] border-t border-b border-white/5">
+      <section className="py-24 bg-[#080C19] border-t border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h3 className="text-xs font-bold text-qx-primary tracking-widest uppercase mb-4">OUR PROCESS</h3>
-            <h4 className="text-3xl md:text-4xl font-bold text-white tracking-tight">How We Work</h4>
+            <h4 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">How We Work</h4>
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {[
@@ -218,8 +231,8 @@ export default function ITSoftwareService() {
             ].map((step, idx) => (
               <div key={idx} className="relative">
                 <div className="text-4xl font-black text-qx-primary/30 mb-2">{step.num}</div>
-                <h5 className="text-base font-bold text-white mb-2">{step.title}</h5>
-                <p className="text-sm text-qx-textSecondary leading-relaxed">{step.desc}</p>
+                <h5 className="text-base font-bold text-gray-900 mb-2">{step.title}</h5>
+                <p className="text-sm text-gray-600 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>

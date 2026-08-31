@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Rocket, Code2, Users, Briefcase, ArrowRight } from 'lucide-react';
 import { Button } from '../ui/Button';
-import logo from '../../assets/logo-new.jpg';
+import logo from '../../assets/qevrix-logo.png';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function EngineeringNavbar() {

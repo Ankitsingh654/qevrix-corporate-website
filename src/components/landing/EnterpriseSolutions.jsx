@@ -58,7 +58,7 @@ export default function EnterpriseSolutions() {
   };
 
   return (
-    <section id="solutions" className="py-24 bg-qx-surface border-y border-qx-border relative overflow-hidden">
+    <section id="solutions" className="py-24 bg-white border-y border-qx-border relative overflow-hidden">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-qx-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -75,17 +75,17 @@ export default function EnterpriseSolutions() {
               <span className="w-4 h-[2px] bg-qx-primary"></span>
               TRUSTED BUSINESS SOLUTIONS
             </h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+            <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
               Solutions Built Around <span className="text-transparent bg-clip-text bg-gradient-to-r from-qx-primary to-blue-400">Your Business.</span>
             </h3>
-            <p className="text-qx-textSecondary mb-8 leading-relaxed text-lg">
+            <p className="text-gray-600 mb-8 leading-relaxed text-lg">
               From technology development and skilled workforce support to civil project execution, QEVRIX delivers practical solutions designed around your business requirements.
             </p>
             
             {/* Capability Tags */}
             <div className="flex flex-wrap gap-2 mb-10">
               {tags.map((tag, i) => (
-                <span key={i} className="px-3 py-1 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-white/70 hover:text-white hover:bg-qx-primary/20 hover:border-qx-primary/50 transition-all cursor-default">
+                <span key={i} className="px-3 py-1 bg-gray-50 border border-gray-200 rounded-md text-xs font-semibold text-gray-900/70 hover:text-gray-900 hover:bg-qx-primary/20 hover:border-qx-primary/50 transition-all cursor-default">
                   {tag}
                 </span>
               ))}
@@ -109,7 +109,7 @@ export default function EnterpriseSolutions() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="group p-8 rounded-[20px] bg-qx-surface/80 border border-white/5 hover:border-white/10 hover:bg-qx-surface hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 relative flex flex-col cursor-pointer"
+                  className="group p-8 rounded-[20px] bg-white/80 border border-white/5 hover:border-gray-200 hover:bg-white hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 relative flex flex-col cursor-pointer"
                   onClick={handleCtaClick}
                 >
                   <div className="h-12 w-12 rounded-[14px] bg-qx-background border border-qx-border flex items-center justify-center text-qx-text group-hover:text-qx-primary group-hover:border-qx-primary/30 transition-colors duration-300 mb-6 shadow-sm">
@@ -117,14 +117,14 @@ export default function EnterpriseSolutions() {
                   </div>
                   <div className="flex-1 flex flex-col">
                     <h4 className="text-[18px] font-bold text-qx-text mb-3 tracking-wide">{s.title}</h4>
-                    <p className="text-[14px] text-qx-textSecondary leading-relaxed mb-6">{s.desc}</p>
+                    <p className="text-[14px] text-gray-600 leading-relaxed mb-6">{s.desc}</p>
                     
                     {/* Compact Highlight Chips */}
                     <div className="flex flex-wrap gap-2 mt-auto mb-6">
                       {s.highlights.map((h, idx) => (
                         <span 
                           key={idx} 
-                          className="px-2.5 py-1 bg-qx-background rounded-md text-[11px] font-semibold tracking-wide text-qx-textMuted group-hover:text-qx-textSecondary transition-colors"
+                          className="px-2.5 py-1 bg-qx-background rounded-md text-[11px] font-semibold tracking-wide text-qx-textMuted group-hover:text-gray-600 transition-colors"
                         >
                           {h}
                         </span>

@@ -2,14 +2,11 @@ import React from 'react';
 import QevrixNavbar from '../components/landing/QevrixNavbar';
 import HeroSection from '../components/landing/HeroSection';
 import AboutQevrix from '../components/landing/AboutQevrix';
-import QevrixProducts from '../components/landing/QevrixProducts';
-import QevrixProductsSection from '../components/landing/QevrixProductsSection';
+import OurServicesSection from '../components/landing/OurServicesSection';
 import EnterpriseSolutions from '../components/landing/EnterpriseSolutions';
 import WhyQevrix from '../components/landing/WhyQevrix';
-import QevrixTrust from '../components/landing/QevrixTrust';
-import HowWeWork from '../components/landing/HowWeWork';
-import LeadershipSnippet from '../components/landing/LeadershipSnippet';
-import Contact from '../components/Contact';
+import OurProcessSection from '../components/landing/OurProcessSection';
+import TestimonialSlider from '../components/landing/TestimonialSlider';
 import CallToAction from '../components/landing/CallToAction';
 import QevrixFooter from '../components/landing/QevrixFooter';
 
@@ -67,7 +64,6 @@ export default function LandingPage() {
     }
 
     return () => {
-      // Remove JSON-LD when leaving homepage to ensure it only renders here
       if (script && document.head.contains(script)) {
         document.head.removeChild(script);
       }
@@ -75,18 +71,15 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#060A14] font-sans text-qx-text selection:bg-qx-primary selection:text-white relative">
+    <div className="min-h-screen bg-qx-background font-sans text-qx-text selection:bg-qx-primary selection:text-white relative">
       <QevrixNavbar />
       <HeroSection />
       <AboutQevrix />
-      <QevrixProducts />
-      <QevrixProductsSection />
+      <OurServicesSection />
       <EnterpriseSolutions />
-      <HowWeWork />
       <WhyQevrix />
-      <QevrixTrust />
-      <LeadershipSnippet />
-      <Contact />
+      <OurProcessSection />
+      <TestimonialSlider />
       <CallToAction />
       <QevrixFooter />
     </div>

@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    /* QEVRIX Enterprise Navy Blue Theme */
-    --qx-primary: #4F7DFF;
-    --qx-primary-hover: #638CFF;
-    --qx-secondary: #294A8A;
+    /* QEVRIX New Orange & Light Theme */
+    --qx-primary: #FF5A00;
+    --qx-primary-hover: #FF7026;
+    --qx-secondary: #000000;
 
     /* Backgrounds */
-    --qx-background: #080D1C;
-    --qx-background-alt: #0B1120;
-    --qx-surface: #111827;
-    --qx-surface-hover: #151E30;
+    --qx-background: #FFFFFF;
+    --qx-background-alt: #F8FAFC;
+    --qx-surface: #FFFFFF;
+    --qx-surface-hover: #F1F5F9;
 
     /* Borders */
-    --qx-border: rgba(148, 163, 184, 0.12);
-    --qx-border-hover: rgba(79, 125, 255, 0.40);
+    --qx-border: #E2E8F0;
+    --qx-border-hover: #FF5A00;
 
     /* Typography */
-    --qx-text: #F1F5F9;
-    --qx-text-muted: #77839A;
-    --qx-text-secondary: #A8B3C7;
-    --qx-text-inverse: #080D1C;
+    --qx-text: #000000;
+    --qx-text-muted: #64748B;
+    --qx-text-secondary: #475569;
+    --qx-text-inverse: #FFFFFF;
 
     /* Semantic */
     --qx-success: #10B981;
@@ -44,6 +44,17 @@
   
   body {
     @apply bg-qx-background text-qx-text font-sans antialiased;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+  }
+
+  input, textarea, select {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
   }
 }
 
@@ -57,7 +68,7 @@
   }
   
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-qx-textMuted;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-qx-primary to-qx-secondary;
   }
 }
 
@@ -79,28 +90,28 @@
 /* Custom Selection */
 ::selection {
   background: var(--qx-primary);
-  color: var(--qx-text);
+  color: var(--qx-text-inverse);
 }
 
-/* Autofill and Form Elements Dark Styling Defaults */
+/* Autofill and Form Elements Styling Defaults */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-  -webkit-text-fill-color: #f8fafc !important;
-  -webkit-box-shadow: 0 0 0px 1000px #0f172a inset !important;
-  box-shadow: 0 0 0px 1000px #0f172a inset !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #F8FAFC inset !important;
+  box-shadow: 0 0 0px 1000px #F8FAFC inset !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Default native dark selects and textareas */
+/* Default native selects and textareas */
 input, select, textarea {
-  background-color: #0f172a;
-  color: #ffffff;
+  background-color: #F8FAFC;
+  color: #000000;
 }
 option {
-  background-color: #0f172a;
-  color: #ffffff;
+  background-color: #F8FAFC;
+  color: #000000;
 }
 

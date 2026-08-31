@@ -280,9 +280,9 @@ export default function Contact({ initialService }) {
   };
 
   const formControlClass = (fieldName) => `
-    w-full px-4 py-3 bg-qx-background text-white placeholder-qx-textMuted rounded-xl outline-none transition-all duration-300
-    border border-qx-border focus:border-qx-primary focus:ring-4 focus:ring-qx-primary/10 hover:border-qx-borderHover
-    ${validationErrors[fieldName] ? "border-red-500/50 focus:border-red-500 focus:ring-red-500/10" : ""}
+    w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400 rounded-xl outline-none transition-all duration-300
+    border border-gray-200 focus:border-qx-primary focus:ring-4 focus:ring-qx-primary/10 hover:border-gray-300 shadow-sm
+    ${validationErrors[fieldName] ? "border-red-500 focus:border-red-500 focus:ring-red-500/10" : ""}
   `.trim().replace(/\s+/g, ' ');
 
   const currentConfig = categoryConfig[selectedService] || categoryConfig["General Enquiry"];
@@ -309,9 +309,9 @@ export default function Contact({ initialService }) {
                   <span className="w-6 h-[2px] bg-qx-primary"></span>
                   {currentConfig.title}
                 </h2>
-                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
                   Let's Discuss <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-qx-primary to-blue-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-qx-primary to-blue-500">
                     Your Requirement.
                   </span>
                 </h3>
@@ -322,15 +322,15 @@ export default function Contact({ initialService }) {
             </AnimatePresence>
 
             {/* Info panel */}
-            <div className="bg-qx-surface border border-qx-border rounded-2xl p-6 md:p-8 space-y-6 shadow-sm mt-auto">
-              <h4 className="text-[18px] font-bold text-white mb-2">Contact {companyConfig.brandName}</h4>
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 space-y-6 shadow-sm mt-auto">
+              <h4 className="text-[18px] font-bold text-gray-900 mb-2">Contact {companyConfig.brandName}</h4>
               
               {companyConfig.companyEmail && (
                 <div className="flex items-start space-x-4">
                   <Mail className="text-qx-primary mt-1 flex-shrink-0" size={18} />
                   <div>
-                    <div className="text-[11px] font-bold text-qx-textSecondary uppercase tracking-widest">Email</div>
-                    <a href={`mailto:${companyConfig.companyEmail}`} className="text-white hover:text-qx-primary transition-colors text-[14px] font-medium">
+                    <div className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">Email</div>
+                    <a href={`mailto:${companyConfig.companyEmail}`} className="text-gray-900 hover:text-qx-primary transition-colors text-[14px] font-medium">
                       {companyConfig.companyEmail}
                     </a>
                   </div>
@@ -341,8 +341,8 @@ export default function Contact({ initialService }) {
                 <div className="flex items-start space-x-4">
                   <Phone className="text-qx-primary mt-1 flex-shrink-0" size={18} />
                   <div>
-                    <div className="text-[11px] font-bold text-qx-textSecondary uppercase tracking-widest">Phone</div>
-                    <a href={`tel:${companyConfig.companyPhone.replace(/\s+/g, '')}`} className="text-white hover:text-qx-primary transition-colors text-[14px] font-medium">
+                    <div className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">Phone</div>
+                    <a href={`tel:${companyConfig.companyPhone.replace(/\s+/g, '')}`} className="text-gray-900 hover:text-qx-primary transition-colors text-[14px] font-medium">
                       {companyConfig.companyPhone}
                     </a>
                   </div>
@@ -353,8 +353,8 @@ export default function Contact({ initialService }) {
                 <div className="flex items-start space-x-4">
                   <MapPin className="text-qx-primary mt-1 flex-shrink-0" size={18} />
                   <div>
-                    <div className="text-[11px] font-bold text-qx-textSecondary uppercase tracking-widest">Location</div>
-                    <div className="text-white text-[14px] font-medium">{companyConfig.companyLocation}</div>
+                    <div className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">Location</div>
+                    <div className="text-gray-900 text-[14px] font-medium">{companyConfig.companyLocation}</div>
                   </div>
                 </div>
               )}
@@ -363,17 +363,17 @@ export default function Contact({ initialService }) {
 
           {/* Right Column: Dynamic Form */}
           <div className="lg:col-span-7">
-            <div className="bg-qx-surface border border-qx-border rounded-[24px] p-8 md:p-10 shadow-lg relative">
+            <div className="bg-white border border-gray-200 rounded-[24px] p-8 md:p-10 shadow-lg relative">
               {status === "success" ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12"
                 >
-                  <div className="h-16 w-16 bg-qx-success/10 border border-qx-success/20 text-qx-success rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="h-16 w-16 bg-green-50 border border-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 size={32} />
                   </div>
-                  <h4 className="text-[24px] font-bold text-white mb-3">
+                  <h4 className="text-[24px] font-bold text-gray-900 mb-3">
                     {selectedService === 'Schedule Meeting' ? 'Meeting Request Received' : 'Enquiry Sent Successfully'}
                   </h4>
                   <p className="text-qx-textSecondary max-w-md mx-auto text-[15px] leading-relaxed">
@@ -393,7 +393,7 @@ export default function Contact({ initialService }) {
                   
                   {/* Category Selection Grid */}
                   <div>
-                    <label className="block text-[12px] font-bold text-white mb-3 uppercase tracking-wider">
+                    <label className="block text-[12px] font-bold text-gray-900 mb-3 uppercase tracking-wider">
                       Select Requirement Category
                     </label>
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
@@ -408,7 +408,7 @@ export default function Contact({ initialService }) {
                             className={`p-3 rounded-xl border flex flex-col items-center justify-center text-center transition-all duration-200 ${
                               isSelected
                                 ? "bg-qx-primary/10 border-qx-primary text-qx-primary shadow-sm"
-                                : "bg-qx-background border-qx-border text-qx-textSecondary hover:border-qx-borderHover hover:text-white"
+                                : "bg-white border-gray-200 text-gray-500 hover:border-qx-primary hover:text-qx-primary"
                             }`}
                           >
                             <IconComponent size={18} className="mb-2" />
@@ -423,30 +423,30 @@ export default function Contact({ initialService }) {
                     <>
                       <div className="grid md:grid-cols-2 gap-6 pt-2">
                         <div>
-                          <label className="block text-[13px] font-semibold text-white mb-2">Full Name *</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Full Name *</label>
                           <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="Your full name" className={formControlClass("fullName")} />
                           {validationErrors.fullName && <p className="text-red-400 text-[12px] font-medium mt-1.5">{validationErrors.fullName}</p>}
                         </div>
                         <div>
-                          <label className="block text-[13px] font-semibold text-white mb-2">Company / Organisation</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Company / Organisation</label>
                           <input type="text" name="company" value={formData.company} onChange={handleInputChange} placeholder="Your company name" className={formControlClass("company")} />
                         </div>
                       </div>
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-[13px] font-semibold text-white mb-2">Email Address *</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Email Address *</label>
                           <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="you@company.com" className={formControlClass("email")} />
                           {validationErrors.email && <p className="text-red-400 text-[12px] font-medium mt-1.5">{validationErrors.email}</p>}
                         </div>
                         <div>
-                          <label className="block text-[13px] font-semibold text-white mb-2">Phone Number *</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Phone Number *</label>
                           <input type="tel" name="phoneNo" value={formData.phoneNo} onChange={handleInputChange} placeholder="e.g. +91 99999 99999" className={formControlClass("phoneNo")} />
                           {validationErrors.phoneNo && <p className="text-red-400 text-[12px] font-medium mt-1.5">{validationErrors.phoneNo}</p>}
                         </div>
                       </div>
                       <div className="grid md:grid-cols-3 gap-6">
                         <div className="md:col-span-1">
-                          <label className="block text-[13px] font-semibold text-white mb-2">Meeting Purpose *</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Meeting Purpose *</label>
                           <select name="meetingPurpose" value={formData.meetingPurpose} onChange={handleInputChange} className={formControlClass("meetingPurpose")}>
                             <option value="">Select purpose</option>
                             {currentConfig.types.map(t => <option key={t} value={t}>{t}</option>)}
@@ -454,19 +454,19 @@ export default function Contact({ initialService }) {
                           {validationErrors.meetingPurpose && <p className="text-red-400 text-[12px] font-medium mt-1.5">{validationErrors.meetingPurpose}</p>}
                         </div>
                         <div className="md:col-span-1">
-                          <label className="block text-[13px] font-semibold text-white mb-2">Preferred Date *</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Preferred Date *</label>
                           <input type="date" name="preferredDate" min={new Date().toISOString().split('T')[0]} value={formData.preferredDate} onChange={handleInputChange} className={formControlClass("preferredDate")} style={{colorScheme: 'dark'}} />
                           {validationErrors.preferredDate && <p className="text-red-400 text-[12px] font-medium mt-1.5">{validationErrors.preferredDate}</p>}
                         </div>
                         <div className="md:col-span-1">
-                          <label className="block text-[13px] font-semibold text-white mb-2">Preferred Time *</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Preferred Time *</label>
                           <input type="time" name="preferredTime" value={formData.preferredTime} onChange={handleInputChange} className={formControlClass("preferredTime")} style={{colorScheme: 'dark'}} />
                           {validationErrors.preferredTime && <p className="text-red-400 text-[12px] font-medium mt-1.5">{validationErrors.preferredTime}</p>}
                         </div>
                       </div>
                       <div>
                         <div className="flex justify-between items-end mb-2">
-                          <label className="block text-[13px] font-semibold text-white">Message / Agenda</label>
+                          <label className="block text-[13px] font-semibold text-gray-900">Message / Agenda</label>
                         </div>
                         <textarea name="agenda" rows="3" value={formData.agenda} onChange={handleInputChange} placeholder={currentConfig.placeholder} className={formControlClass("agenda")}></textarea>
                       </div>
@@ -476,24 +476,24 @@ export default function Contact({ initialService }) {
                       {/* General Fields */}
                       <div className="grid md:grid-cols-2 gap-6 pt-2">
                         <div>
-                          <label className="block text-[13px] font-semibold text-white mb-2">Full Name *</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Full Name *</label>
                           <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="Your full name" className={formControlClass("fullName")} />
                           {validationErrors.fullName && <p className="text-red-400 text-[12px] font-medium mt-1.5">{validationErrors.fullName}</p>}
                         </div>
                         <div>
-                          <label className="block text-[13px] font-semibold text-white mb-2">Company / Organisation</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Company / Organisation</label>
                           <input type="text" name="company" value={formData.company} onChange={handleInputChange} placeholder="Your company name" className={formControlClass("company")} />
                         </div>
                       </div>
 
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-[13px] font-semibold text-white mb-2">Email Address *</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Email Address *</label>
                           <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="you@company.com" className={formControlClass("email")} />
                           {validationErrors.email && <p className="text-red-400 text-[12px] font-medium mt-1.5">{validationErrors.email}</p>}
                         </div>
                         <div>
-                          <label className="block text-[13px] font-semibold text-white mb-2">Phone Number *</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Phone Number *</label>
                           <input type="tel" name="phoneNo" value={formData.phoneNo} onChange={handleInputChange} placeholder="e.g. +91 99999 99999" className={formControlClass("phoneNo")} />
                           {validationErrors.phoneNo && <p className="text-red-400 text-[12px] font-medium mt-1.5">{validationErrors.phoneNo}</p>}
                         </div>
@@ -501,7 +501,7 @@ export default function Contact({ initialService }) {
 
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-[13px] font-semibold text-white mb-2">Requirement Type</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Requirement Type</label>
                           <select name="requirementType" value={formData.requirementType} onChange={handleInputChange} className={formControlClass("requirementType")}>
                             <option value="">Select an option</option>
                             {currentConfig.types.map(type => (
@@ -510,7 +510,7 @@ export default function Contact({ initialService }) {
                           </select>
                         </div>
                         <div>
-                          <label className="block text-[13px] font-semibold text-white mb-2">Estimated Budget</label>
+                          <label className="block text-[13px] font-semibold text-gray-900 mb-2">Estimated Budget</label>
                           <select name="estimatedBudget" value={formData.estimatedBudget} onChange={handleInputChange} className={formControlClass("estimatedBudget")}>
                             <option value="Not Sure Yet">Not Sure Yet</option>
                             <option value="Under ₹50,000">Under ₹50,000</option>
@@ -524,7 +524,7 @@ export default function Contact({ initialService }) {
 
                       <div>
                         <div className="flex justify-between items-end mb-2">
-                          <label className="block text-[13px] font-semibold text-white">Requirement Details *</label>
+                          <label className="block text-[13px] font-semibold text-gray-900">Requirement Details *</label>
                         </div>
                         <AnimatePresence mode="wait">
                           <motion.div 

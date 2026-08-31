@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logoIcon from '../../assets/logo-new.jpg';
+import logoIcon from '../../assets/qevrix-logo.png';
 
 export default function SplashScreen({ onComplete }) {
   const [isVisible, setIsVisible] = useState(true);

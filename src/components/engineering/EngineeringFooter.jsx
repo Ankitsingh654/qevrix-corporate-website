@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Twitter, Youtube, ArrowRight, Mail } from 'lucide-react';
-import logo from '../../assets/logo-new.jpg';
+import logo from '../../assets/qevrix-logo.png';
 
 export default function EngineeringFooter() {
   return (

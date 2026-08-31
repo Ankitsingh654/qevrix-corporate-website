@@ -187,21 +187,21 @@ ${formData.coverNote || 'N/A'}`;
   };
 
   const formControlClass = (fieldName) => `
-    w-full px-4 py-3 bg-qx-background text-white placeholder-qx-textMuted rounded-xl outline-none transition-all duration-300
-    border border-qx-border focus:border-qx-primary focus:ring-4 focus:ring-qx-primary/10 hover:border-qx-borderHover
-    ${errors[fieldName] ? "border-red-500/50 focus:border-red-500 focus:ring-red-500/10" : ""}
+    w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400 rounded-xl outline-none transition-all duration-300
+    border border-gray-200 focus:border-qx-primary focus:ring-4 focus:ring-qx-primary/10 hover:border-gray-300 shadow-sm
+    ${errors[fieldName] ? "border-red-500 focus:border-red-500 focus:ring-red-500/10" : ""}
   `.trim().replace(/\s+/g, ' ');
 
   return (
-    <div className="min-h-screen bg-[#060A14] font-sans text-qx-text selection:bg-qx-primary selection:text-white relative">
+    <div className="min-h-screen bg-qx-background font-sans text-qx-text selection:bg-qx-primary selection:text-white relative">
       <QevrixNavbar />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 overflow-hidden border-b border-white/5 bg-[#0A101D]">
+      <section className="relative pt-32 pb-16 overflow-hidden border-b border-gray-200 bg-gray-50">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-qx-primary/5 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="max-w-[800px] mx-auto px-6 relative z-10 text-center">
-          <Link to="/careers" className="inline-flex items-center gap-2 text-qx-textSecondary hover:text-white transition-colors mb-6 text-sm font-medium">
+          <Link to="/careers" className="inline-flex items-center gap-2 text-gray-600 hover:text-qx-primary transition-colors mb-6 text-sm font-medium">
             <ArrowLeft size={16} /> Back to Careers
           </Link>
           <motion.div
@@ -209,10 +209,10 @@ ${formData.coverNote || 'N/A'}`;
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
               Submit Your Profile
             </h1>
-            <p className="text-qx-textSecondary text-lg">
+            <p className="text-gray-600 text-lg">
               We are always interested in meeting talented people. Share your profile with QEVRIX for current or future opportunities.
             </p>
           </motion.div>
@@ -226,51 +226,51 @@ ${formData.coverNote || 'N/A'}`;
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-qx-surface border border-qx-border rounded-2xl p-10 text-center shadow-lg"
+              className="bg-white border border-gray-200 rounded-2xl p-10 text-center shadow-lg"
             >
-              <div className="h-20 w-20 bg-qx-success/10 border border-qx-success/20 text-qx-success rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="h-20 w-20 bg-green-50 border border-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle2 size={40} />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-4">Application details prepared</h3>
-              <p className="text-qx-textSecondary text-lg max-w-lg mx-auto mb-10 leading-relaxed">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Application details prepared</h3>
+              <p className="text-gray-600 text-lg max-w-lg mx-auto mb-10 leading-relaxed">
                 Your email client will open with the application details. Please attach your selected resume before sending the email to <strong>contact@qevrix.in</strong>.
               </p>
               <Link 
                 to="/careers" 
-                className="inline-flex px-8 py-3 bg-qx-primary hover:bg-blue-600 text-white font-bold rounded-xl transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]"
+                className="inline-flex px-8 py-3 bg-qx-primary hover:bg-qx-primaryHover text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg"
               >
                 Back to Careers
               </Link>
             </motion.div>
           ) : (
-            <div className="bg-qx-surface border border-qx-border rounded-2xl p-8 md:p-10 shadow-lg relative" id="application-form">
+            <div className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 shadow-lg relative" id="application-form">
               <form onSubmit={handleSubmit} className="space-y-8">
                 
                 {/* Personal Information */}
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2 border-b border-white/5 pb-2">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2 border-b border-gray-100 pb-2">
                     <User size={18} className="text-qx-primary" /> Personal Information
                   </h3>
                   <div className="grid md:grid-cols-2 gap-6 pt-2">
                     <div>
-                      <label className="block text-[13px] font-semibold text-white mb-2">Full Name *</label>
+                      <label className="block text-[13px] font-semibold text-gray-900 mb-2">Full Name *</label>
                       <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="Your full name" className={formControlClass('fullName')} />
-                      {errors.fullName && <p className="text-red-400 text-[12px] font-medium mt-1.5">{errors.fullName}</p>}
+                      {errors.fullName && <p className="text-red-500 text-[12px] font-medium mt-1.5">{errors.fullName}</p>}
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-white mb-2">Email Address *</label>
+                      <label className="block text-[13px] font-semibold text-gray-900 mb-2">Email Address *</label>
                       <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="you@example.com" className={formControlClass('email')} />
-                      {errors.email && <p className="text-red-400 text-[12px] font-medium mt-1.5">{errors.email}</p>}
+                      {errors.email && <p className="text-red-500 text-[12px] font-medium mt-1.5">{errors.email}</p>}
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-6 mt-6">
                     <div>
-                      <label className="block text-[13px] font-semibold text-white mb-2">Phone Number *</label>
+                      <label className="block text-[13px] font-semibold text-gray-900 mb-2">Phone Number *</label>
                       <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="e.g. +91 99999 99999" className={formControlClass('phone')} />
-                      {errors.phone && <p className="text-red-400 text-[12px] font-medium mt-1.5">{errors.phone}</p>}
+                      {errors.phone && <p className="text-red-500 text-[12px] font-medium mt-1.5">{errors.phone}</p>}
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-white mb-2">Location</label>
+                      <label className="block text-[13px] font-semibold text-gray-900 mb-2">Location</label>
                       <input type="text" name="location" value={formData.location} onChange={handleInputChange} placeholder="City, State, Country" className={formControlClass('location')} />
                     </div>
                   </div>
@@ -278,12 +278,12 @@ ${formData.coverNote || 'N/A'}`;
 
                 {/* Professional Details */}
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2 border-b border-white/5 pb-2 mt-10">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2 border-b border-gray-100 pb-2 mt-10">
                     <Briefcase size={18} className="text-qx-primary" /> Professional Details
                   </h3>
                   <div className="grid md:grid-cols-2 gap-6 pt-2">
                     <div>
-                      <label className="block text-[13px] font-semibold text-white mb-2">Position / Area of Interest *</label>
+                      <label className="block text-[13px] font-semibold text-gray-900 mb-2">Position / Area of Interest *</label>
                       <select name="position" value={formData.position} onChange={handleInputChange} className={formControlClass('position')}>
                         <option value="">Select an area</option>
                         <option value="Software & Technology">Software & Technology</option>
@@ -292,10 +292,10 @@ ${formData.coverNote || 'N/A'}`;
                         <option value="Civil & Infrastructure">Civil & Infrastructure</option>
                         <option value="Business Operations">Business Operations</option>
                       </select>
-                      {errors.position && <p className="text-red-400 text-[12px] font-medium mt-1.5">{errors.position}</p>}
+                      {errors.position && <p className="text-red-500 text-[12px] font-medium mt-1.5">{errors.position}</p>}
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-white mb-2">Experience Level</label>
+                      <label className="block text-[13px] font-semibold text-gray-900 mb-2">Experience Level</label>
                       <select name="experience" value={formData.experience} onChange={handleInputChange} className={formControlClass('experience')}>
                         <option value="">Select experience</option>
                         <option value="Fresher">Fresher</option>
@@ -306,7 +306,7 @@ ${formData.coverNote || 'N/A'}`;
                     </div>
                   </div>
                   <div className="mt-6">
-                    <label className="block text-[13px] font-semibold text-white mb-2">Key Skills</label>
+                    <label className="block text-[13px] font-semibold text-gray-900 mb-2">Key Skills</label>
                     <input type="text" name="skills" value={formData.skills} onChange={handleInputChange} placeholder="e.g. React, Node.js, Project Management, AutoCAD" className={formControlClass('skills')} />
                   </div>
                 </div>
@@ -314,54 +314,54 @@ ${formData.coverNote || 'N/A'}`;
                 {/* Links */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[13px] font-semibold text-white mb-2">LinkedIn Profile</label>
+                    <label className="block text-[13px] font-semibold text-gray-900 mb-2">LinkedIn Profile</label>
                     <input type="url" name="linkedin" value={formData.linkedin} onChange={handleInputChange} placeholder="https://linkedin.com/in/..." className={formControlClass('linkedin')} />
                   </div>
                   <div>
-                    <label className="block text-[13px] font-semibold text-white mb-2">Portfolio / Website</label>
+                    <label className="block text-[13px] font-semibold text-gray-900 mb-2">Portfolio / Website</label>
                     <input type="url" name="portfolio" value={formData.portfolio} onChange={handleInputChange} placeholder="https://..." className={formControlClass('portfolio')} />
                   </div>
                 </div>
 
                 {/* Resume Upload */}
                 <div>
-                  <label className="block text-[13px] font-semibold text-white mb-2">Resume / CV</label>
+                  <label className="block text-[13px] font-semibold text-gray-900 mb-2">Resume / CV</label>
                   <div 
                     className={`border-2 border-dashed rounded-xl p-8 text-center transition-all duration-300 ${
                       file ? 'border-qx-primary bg-qx-primary/5' : 
-                      fileError ? 'border-red-500/50 bg-red-500/5' : 
-                      'border-qx-border hover:border-qx-primary/50 hover:bg-white/[0.02]'
+                      fileError ? 'border-red-500 bg-red-50' : 
+                      'border-gray-300 hover:border-qx-primary/50 hover:bg-gray-50'
                     }`}
                     onDragOver={(e) => e.preventDefault()}
                     onDrop={handleDrop}
                   >
                     {!file ? (
                       <div className="flex flex-col items-center justify-center">
-                        <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-qx-textSecondary mb-4">
+                        <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 mb-4">
                           <UploadCloud size={24} />
                         </div>
-                        <p className="text-white font-medium mb-1">Drag and drop your resume here</p>
-                        <p className="text-[12px] text-qx-textMuted mb-4">PDF, DOC, DOCX (Max 5MB)</p>
+                        <p className="text-gray-900 font-medium mb-1">Drag and drop your resume here</p>
+                        <p className="text-[12px] text-gray-500 mb-4">PDF, DOC, DOCX (Max 5MB)</p>
                         <button 
                           type="button"
                           onClick={() => fileInputRef.current?.click()}
-                          className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm font-medium transition-colors"
+                          className="px-5 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-colors border border-gray-200"
                         >
                           Browse Files
                         </button>
                       </div>
                     ) : (
                       <div className="flex flex-col items-center justify-center">
-                        <div className="w-12 h-12 bg-qx-primary/20 text-qx-primary rounded-full flex items-center justify-center mb-3">
+                        <div className="w-12 h-12 bg-qx-primary/10 text-qx-primary rounded-full flex items-center justify-center mb-3">
                           <FileText size={24} />
                         </div>
-                        <p className="text-white font-medium mb-1 truncate max-w-full px-4">{file.name}</p>
-                        <p className="text-[12px] text-qx-textSecondary mb-2">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                        <p className="text-gray-900 font-medium mb-1 truncate max-w-full px-4">{file.name}</p>
+                        <p className="text-[12px] text-gray-500 mb-2">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                         <p className="text-[12px] text-qx-primary mb-4 px-4 text-center">Your email client will open with the application details. Please attach your selected resume before sending the email.</p>
                         <button 
                           type="button"
                           onClick={removeFile}
-                          className="text-red-400 hover:text-red-300 text-sm font-medium flex items-center gap-1 transition-colors"
+                          className="text-red-500 hover:text-red-600 text-sm font-medium flex items-center gap-1 transition-colors"
                         >
                           <X size={16} /> Remove File
                         </button>
@@ -375,12 +375,12 @@ ${formData.coverNote || 'N/A'}`;
                       className="hidden" 
                     />
                   </div>
-                  {fileError && <p className="text-red-400 text-[12px] font-medium mt-2">{fileError}</p>}
+                  {fileError && <p className="text-red-500 text-[12px] font-medium mt-2">{fileError}</p>}
                 </div>
 
                 {/* Cover Note */}
                 <div>
-                  <label className="block text-[13px] font-semibold text-white mb-2">Cover Note / Introduction</label>
+                  <label className="block text-[13px] font-semibold text-gray-900 mb-2">Cover Note / Introduction</label>
                   <textarea 
                     name="coverNote" 
                     rows="4" 
@@ -391,15 +391,15 @@ ${formData.coverNote || 'N/A'}`;
                   ></textarea>
                 </div>
 
-                <div className="pt-4 border-t border-white/5">
+                <div className="pt-4 border-t border-gray-100">
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full h-14 bg-qx-primary text-white font-bold rounded-xl hover:bg-qx-primaryHover transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(59,130,246,0.2)] hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] disabled:opacity-70 disabled:cursor-not-allowed text-[15px]"
+                    className="w-full h-14 bg-qx-primary text-white font-bold rounded-xl hover:bg-qx-primaryHover transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed text-[15px]"
                   >
                     {status === 'loading' ? 'Submitting...' : 'Submit Application →'}
                   </button>
-                  <p className="text-center text-[12px] text-qx-textSecondary mt-4 leading-relaxed max-w-md mx-auto">
+                  <p className="text-center text-[12px] text-gray-500 mt-4 leading-relaxed max-w-md mx-auto">
                     By submitting your profile, you agree that QEVRIX may review your information for relevant career opportunities.
                   </p>
                 </div>
