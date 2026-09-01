@@ -18,7 +18,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section id="hero" className="relative pt-28 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-qx-background">
+    <section id="hero" className="relative pt-28 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-[#FEFAF6]">
       
       {/* Background abstract gradients */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -27,21 +27,21 @@ export default function HeroSection() {
       </div>
 
       <div className="max-w-[1536px] mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-0 items-center">
           
           {/* Left Side: Content */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl"
+            className="lg:col-span-5 max-w-2xl relative z-10"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-qx-surface border border-qx-border text-xs font-semibold text-qx-primary tracking-widest uppercase mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-qx-primary animate-pulse"></span>
               SYS.ONLINE
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-extrabold text-qx-text tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-5xl lg:text-7xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-6">
               Engineering <span className="text-qx-primary">IT, Workforce & Civil</span> Solutions for the Future
             </h1>
             
@@ -65,35 +65,26 @@ export default function HeroSection() {
                 Explore Services
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" onClick={() => openContactModal()} className="h-12 px-8 text-[15px] font-semibold flex items-center gap-2 transition-all duration-300 border-2 border-qx-border text-qx-text hover:bg-qx-border/50 hover:border-qx-primary rounded-lg group">
+              <Button variant="outline" onClick={() => openContactModal()} className="h-12 px-8 text-[15px] font-semibold flex items-center gap-2 transition-all duration-300 border-2 border-gray-200 text-gray-800 hover:bg-gray-50 hover:border-qx-primary rounded-lg group bg-white/50 backdrop-blur-sm">
                 Contact Us
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform opacity-50 text-qx-text" />
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform opacity-50 text-gray-800" />
               </Button>
             </div>
           </motion.div>
 
-          {/* Right-Side Visual Composition (Exact User Image with Hue-Rotate) */}
+          {/* Right-Side Visual Composition */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="relative hidden lg:flex h-[600px] w-full items-center justify-center"
+            className="lg:col-span-7 relative hidden lg:flex h-full w-full items-center justify-center"
           >
-            {/* Ambient Background Glow behind the image */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-qx-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
-
             {/* The Actual User Illustration Image */}
-            <div className="relative w-[500px] h-auto rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(255,90,0,0.15)] ring-1 ring-white/10 group">
+            <div className="relative w-[1000px] xl:w-[1300px] scale-[1.3] -translate-x-32 xl:-translate-x-48 h-auto group z-0">
               <img 
                 src={heroIllustration} 
                 alt="Qevrix Isometric Illustration" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                style={{ 
-                  // Hue-rotate to shift the original blue neon to Qevrix orange
-                  // Blue is ~220deg, Orange is ~30deg. 30 - 220 = -190deg (or +170deg)
-                  filter: 'hue-rotate(170deg) saturate(1.5) contrast(1.1)',
-                  mixBlendMode: 'screen' 
-                }}
+                className="w-full h-full object-contain mix-blend-multiply"
               />
             </div>
           </motion.div>

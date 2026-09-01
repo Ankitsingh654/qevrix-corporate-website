@@ -64,12 +64,11 @@ export default function OurServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-qx-backgroundAlt border-t border-qx-border">
+    <section id="services" className="py-24 bg-white">
       <div className="max-w-[1536px] mx-auto px-6">
         <div className="mb-12">
-          <div className="text-xs font-bold text-qx-textMuted tracking-widest uppercase flex items-center gap-2 mb-2">
-            <span className="w-8 h-px bg-qx-primary"></span>
-            OUR SERVICES
+          <div className="text-xs font-bold text-qx-primary tracking-widest uppercase flex items-center gap-2 mb-2">
+            // OUR SERVICES
           </div>
         </div>
 
@@ -81,26 +80,25 @@ export default function OurServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-qx-surface border border-qx-border rounded-2xl p-8 hover:border-qx-primary/30 transition-all duration-300 hover:shadow-xl group relative overflow-hidden flex flex-col h-full"
+              className="bg-white rounded-[2rem] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all duration-300 group relative overflow-hidden flex flex-col h-full border border-gray-100"
             >
-              {/* Premium Dark Icon Container (Matching the Reference precisely but in Orange) */}
-              <div className="relative w-[72px] h-[72px] rounded-xl bg-[#080D1C] border border-qx-primary shadow-[0_0_20px_rgba(255,90,0,0.3)] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 z-10">
-                <div className="absolute inset-0 bg-qx-primary/10 rounded-xl"></div>
-                <div className="relative z-10 text-qx-primary">
-                  {service.icon}
+              {/* Solid Orange Icon Container */}
+              <div className="relative w-[88px] h-[88px] rounded-3xl bg-qx-primary shadow-[0_15px_30px_rgba(255,90,0,0.3)] flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-500 z-10">
+                <div className="relative z-10 text-white">
+                  {React.cloneElement(service.icon, { className: 'text-white w-10 h-10' })}
                 </div>
               </div>
 
-              <h3 className="text-2xl font-bold text-qx-text mb-4 group-hover:text-qx-primary transition-colors relative z-10">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 transition-colors relative z-10">
                 {service.title}
               </h3>
-              <p className="text-qx-textSecondary mb-8 leading-relaxed font-medium relative z-10 flex-grow">
+              <p className="text-gray-600 mb-8 leading-relaxed font-medium relative z-10 flex-grow">
                 {service.description}
               </p>
               
-              <Link to={service.path} className="flex items-center gap-2 text-qx-primary font-semibold hover:text-qx-primaryHover transition-colors relative z-10 w-fit">
+              <Link to={service.path} className="flex items-center gap-2 text-qx-primary font-bold hover:gap-3 transition-all duration-300 relative z-10 w-fit text-lg">
                 Learn more
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={20} />
               </Link>
             </motion.div>
           ))}
