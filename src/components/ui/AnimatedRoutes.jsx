@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import PageTransition from './PageTransition';
 
@@ -20,6 +20,14 @@ import CivilConstructionService from "../../pages/CivilConstructionService";
 import BrandingDesignService from "../../pages/BrandingDesignService";
 import PricingPage from "../../pages/PricingPage";
 import ServicePortfolioPage from "../../pages/ServicePortfolioPage";
+import CrmPage from "../../pages/CrmPage";
+import FollowUpsPage from "../../pages/FollowUpsPage";
+import QuotationsPage from "../../pages/QuotationsPage";
+import CrmLogin from "../../pages/CrmLogin";
+import CrmSettingsPage from "../../pages/CrmSettingsPage";
+
+// 🛡️ Protected Route
+import CrmProtectedRoute from "../crm/CrmProtectedRoute";
 
 // 🎓 Student Onboarding
 import StudentOnboardingPage from "../../features/onboarding/pages/StudentOnboardingPage";
@@ -78,6 +86,15 @@ export default function AnimatedRoutes() {
         
         {/* Portfolio Route */}
         <Route path="/portfolio/:serviceId" element={withTransition(<ServicePortfolioPage />)} />
+
+        {/* CRM Route */}
+        <Route path="/crm/login" element={withTransition(<CrmLogin />)} />
+        <Route path="/crm" element={withTransition(<CrmProtectedRoute><CrmPage /></CrmProtectedRoute>)} />
+        <Route path="/crm/follow-ups" element={withTransition(<CrmProtectedRoute><FollowUpsPage /></CrmProtectedRoute>)} />
+        <Route path="/crm/quotations" element={withTransition(<CrmProtectedRoute><QuotationsPage /></CrmProtectedRoute>)} />
+        <Route path="/crm/settings" element={withTransition(<CrmProtectedRoute><CrmSettingsPage /></CrmProtectedRoute>)} />
+        <Route path="/crm/*" element={withTransition(<CrmProtectedRoute><Navigate to="/crm" replace /></CrmProtectedRoute>)} />
+
         
         {/* 🛍️ Product Pages */}
         <Route path="/products" element={withTransition(<ProductsPage />)} />

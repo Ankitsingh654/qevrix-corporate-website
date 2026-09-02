@@ -59,10 +59,10 @@ export default function WhyQevrix() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[520px] w-full rounded-2xl bg-[#F8F9FA] border border-gray-200 shadow-xl overflow-hidden flex font-sans"
+            className="relative h-auto sm:h-[520px] w-full rounded-2xl bg-[#F8F9FA] border border-gray-200 shadow-xl overflow-hidden flex flex-col sm:flex-row font-sans"
           >
             {/* Sidebar */}
-            <div className="w-[180px] bg-white border-r border-gray-100 flex flex-col py-6 px-4">
+            <div className="hidden sm:flex w-[180px] bg-white border-r border-gray-100 flex-col py-6 px-4">
               <div className="bg-[#0B1120] p-2 rounded-lg mb-8 max-w-fit shadow-inner">
                 <img src={qevrixLogo} alt="Qevrix Logo" className="h-5 object-contain" />
               </div>
@@ -97,7 +97,7 @@ export default function WhyQevrix() {
             </div>
 
             {/* Main Area */}
-            <div className="flex-1 flex flex-col p-6 gap-5 overflow-hidden">
+            <div className="flex-1 flex flex-col p-4 sm:p-6 gap-4 sm:gap-5 overflow-hidden">
               {/* Header */}
               <div className="flex justify-between items-center">
                 <h3 className="font-bold text-gray-800 tracking-wide text-sm">DASHBOARD</h3>
@@ -108,7 +108,7 @@ export default function WhyQevrix() {
               </div>
 
               {/* Stats Row */}
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   { label: "Projects", val: "250+", up: "↑ 16%" },
                   { label: "Clients", val: "120+", up: "↑ 16%" },
@@ -125,9 +125,9 @@ export default function WhyQevrix() {
               </div>
 
               {/* Chart & Donut */}
-              <div className="flex-1 grid grid-cols-3 gap-4 min-h-[160px]">
+              <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4 min-h-[160px]">
                 {/* Line Chart */}
-                <div className="col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-4 relative flex flex-col">
+                <div className="col-span-1 sm:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-4 relative flex flex-col min-h-[160px]">
                   <div className="text-xs font-bold text-gray-800 mb-4">Project Progress</div>
                   <div className="flex-1 relative w-full h-full">
                     <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
@@ -166,9 +166,9 @@ export default function WhyQevrix() {
               </div>
 
               {/* Bottom Row */}
-              <div className="grid grid-cols-3 gap-4 flex-1">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
                 {/* Active Projects */}
-                <div className="col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col">
+                <div className="col-span-1 sm:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col">
                   <div className="text-xs font-bold text-gray-800 mb-3">Active Projects</div>
                   <div className="flex-1 flex flex-col justify-around">
                     {[

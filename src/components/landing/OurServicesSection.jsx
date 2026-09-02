@@ -64,7 +64,7 @@ export default function OurServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-12 md:py-20 lg:py-24 bg-white">
       <div className="max-w-[1536px] mx-auto px-6">
         <div className="mb-12">
           <div className="text-xs font-bold text-qx-primary tracking-widest uppercase flex items-center gap-2 mb-2">

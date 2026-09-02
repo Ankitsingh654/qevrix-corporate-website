@@ -90,7 +90,7 @@ export default function BrandingDesignService() {
       <QevrixNavbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden border-b border-white/5">
+      <section className="relative pt-28 pb-12 md:pt-32 md:pb-20 lg:pt-40 lg:pb-32 overflow-hidden border-b border-white/5">
         <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-qx-primary/5 blur-[150px] rounded-full pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center text-center lg:text-left">

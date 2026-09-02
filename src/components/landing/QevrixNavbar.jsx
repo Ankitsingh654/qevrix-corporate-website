@@ -176,7 +176,7 @@ export default function QevrixNavbar() {
             <div className="hidden md:flex items-center gap-4">
               <Button onClick={() => openContactModal()} className="h-10 px-6 text-sm rounded-xl shadow-[0_0_15px_rgba(255,90,0,0.2)] hover:shadow-[0_0_25px_rgba(255,90,0,0.4)] transition-all duration-300 relative overflow-hidden group">
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-in-out"></span>
-                <span className="relative z-10 font-bold tracking-wide">Get a Quote</span>
+                <span className="relative z-10 font-bold tracking-wide">Get in Touch</span>
               </Button>
             </div>
 
@@ -198,7 +198,7 @@ export default function QevrixNavbar() {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-[#060A14]/95 backdrop-blur-2xl border-t border-white/10 w-full overflow-hidden rounded-b-2xl"
             >
-              <div className="px-6 py-6 space-y-6 flex flex-col max-h-[75vh] overflow-y-auto">
+              <div className="px-6 py-6 space-y-6 flex flex-col max-h-[calc(100vh-80px)] overflow-y-auto">
                 <Link to="/" onClick={(e) => { e.preventDefault(); handleNavClick('/'); }} className="text-base font-semibold text-white">Home</Link>
 
                 {/* Mobile Services */}
@@ -244,7 +244,7 @@ export default function QevrixNavbar() {
                 
                 <div className="pt-6 border-t border-white/10 flex flex-col gap-3">
                   <Button onClick={() => openContactModal()} className="w-full justify-center h-12 text-base font-bold shadow-[0_0_20px_rgba(255,90,0,0.3)]">
-                    Get a Quote
+                    Get in Touch
                   </Button>
                 </div>
               </div>

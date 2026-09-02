@@ -71,7 +71,7 @@ export default function ServicePortfolioPage() {
       <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative z-10 border-b border-white/5 bg-[#080D1C]/80 backdrop-blur-xl">
+      <section className="pt-28 pb-12 md:pt-32 md:pb-20 px-6 relative z-10 border-b border-white/5 bg-[#080D1C]/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto">
           <button 
             onClick={() => navigate(-1)} 
@@ -97,7 +97,7 @@ export default function ServicePortfolioPage() {
       </section>
 
       {/* Portfolio Grid Section */}
-      <section className="py-24 relative z-10">
+      <section className="py-12 md:py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           
           {data.projects && data.projects.length > 0 ? (
@@ -117,10 +117,10 @@ export default function ServicePortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 relative z-10 border-t border-white/5 bg-[#080D1C] overflow-hidden">
+      <section className="py-16 md:py-32 relative z-10 border-t border-white/5 bg-[#080D1C] overflow-hidden">
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#FF6B00 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Ready to create something <span className="text-qx-primary">amazing?</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-8">Ready to create something <span className="text-qx-primary">amazing?</span></h2>
           <p className="text-xl text-gray-400 mb-12">Let's discuss how our {data.title.toLowerCase()} services can help achieve your goals.</p>
           <div className="flex flex-wrap justify-center gap-6">
             <button 

@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 
 // Context
 import { ContactModalProvider } from './context/ContactModalContext';
+import { LeadProvider } from './context/LeadContext';
 
 // Components
 import SplashScreen from "./components/landing/SplashScreen";
@@ -14,33 +15,35 @@ export default function App() {
   const [showSplash, setShowSplash] = useState(true);
 
   return (
-    <ContactModalProvider>
-      {showSplash ? (
-        <SplashScreen onComplete={() => setShowSplash(false)} />
-      ) : (
-        <Router>
-          <GlobalContactModal />
-          <Toaster 
-            position="bottom-center"
-            toastOptions={{
-              style: {
-                background: '#111827',
-                color: '#fff',
-                border: '1px solid rgba(255, 90, 0, 0.2)',
-              },
-              success: {
-                iconTheme: {
-                  primary: '#FF5A00',
-                  secondary: '#fff',
+    <LeadProvider>
+      <ContactModalProvider>
+        {showSplash ? (
+          <SplashScreen onComplete={() => setShowSplash(false)} />
+        ) : (
+          <Router>
+            <GlobalContactModal />
+            <Toaster 
+              position="bottom-center"
+              toastOptions={{
+                style: {
+                  background: '#111827',
+                  color: '#fff',
+                  border: '1px solid rgba(255, 90, 0, 0.2)',
                 },
-              },
-            }}
-          />
-          <div className="flex flex-col min-h-screen">
-            <AnimatedRoutes />
-          </div>
-        </Router>
-      )}
-    </ContactModalProvider>
+                success: {
+                  iconTheme: {
+                    primary: '#FF5A00',
+                    secondary: '#fff',
+                  },
+                },
+              }}
+            />
+            <div className="flex flex-col min-h-screen">
+              <AnimatedRoutes />
+            </div>
+          </Router>
+        )}
+      </ContactModalProvider>
+    </LeadProvider>
   );
 }

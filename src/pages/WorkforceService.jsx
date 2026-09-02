@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Users, Shield, Award, Zap, ArrowRight } from 'lucide-react';
+import { Shield, Award, Zap, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import workforceHero from '../assets/workforce-hero.jpg';
 import QevrixNavbar from '../components/landing/QevrixNavbar';
 import QevrixFooter from '../components/landing/QevrixFooter';
 import Contact from '../components/Contact';
@@ -22,6 +24,7 @@ export default function WorkforceService() {
 
   const offers = [
     { title: "Skilled Manpower", desc: "Qualified technicians, operators, and specialists for precise operational requirements." },
+    { title: "ITI & Diploma Professionals", desc: "Certified ITI technicians, electricians, fitters, and diploma engineers for technical roles." },
     { title: "General Workforce", desc: "Support staff and helpers to maintain continuity in warehouse, site, and logistics workflows." },
     { title: "Technical Staff", desc: "Supervisors, quality assessors, and technical coordinators for complex project phases." },
     { title: "Construction Workforce", desc: "Dedicated crews experienced in civil projects, structural works, and execution logistics." },
@@ -47,21 +50,25 @@ export default function WorkforceService() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-white overflow-hidden border-b border-gray-200">
+      <section className="relative py-12 md:py-20 bg-white overflow-hidden border-b border-gray-200">
         <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-qx-primary/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-sm font-bold text-qx-primary tracking-widest uppercase mb-4 flex items-center gap-2">
               <span className="w-4 h-[2px] bg-qx-primary"></span>
               WORKFORCE SOLUTIONS
             </h2>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight leading-tight">
-              Reliable Workforce <br />
+              Reliable Workforce <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-qx-primary to-blue-400">
                 for Real Operations.
               </span>
             </h1>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-xl">
+            <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-xl pr-4">
               QEVRIX provides skilled, general and project-based workforce support designed around operational and business requirements.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -69,18 +76,27 @@ export default function WorkforceService() {
                 Request Workforce
               </Button>
             </div>
-          </div>
-          <div className="hidden lg:flex justify-center">
-            <div className="p-8 bg-qx-surface/60 border border-gray-200 rounded-3xl backdrop-blur-xl shadow-2xl relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-qx-primary/10 to-transparent pointer-events-none rounded-3xl" />
-              <Users size={120} className="text-qx-primary animate-pulse-slow" />
-            </div>
-          </div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex justify-center items-center mt-8 lg:mt-0"
+          >
+            <motion.div 
+              animate={{ y: [0, -12, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl shadow-qx-primary/20 border border-gray-100"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-qx-primary/10 to-transparent pointer-events-none z-10" />
+              <img src={workforceHero} alt="Custom Workforce Team" className="w-full h-auto object-cover" />
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* What We Offer */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
+      <section className="py-12 md:py-24 max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h3 className="text-sm font-bold text-qx-primary tracking-widest uppercase mb-4">WHAT WE OFFER</h3>
           <h4 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">Our Core Offerings</h4>
@@ -111,11 +127,11 @@ export default function WorkforceService() {
       </section>
 
       {/* Why Choose QEVRIX */}
-      <section className="py-24 bg-[#080C19] border-t border-b border-gray-200 relative">
+      <section className="py-12 md:py-24 bg-[#080C19] border-t border-b border-gray-800 relative">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h3 className="text-xs font-bold text-qx-primary tracking-widest uppercase mb-4">WHY PARTNER WITH US</h3>
-            <h4 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">Workforce Execution Advantages</h4>
+            <h4 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Workforce Execution Advantages</h4>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -126,12 +142,12 @@ export default function WorkforceService() {
             ].map((p, idx) => {
               const Icon = p.icon;
               return (
-                <div key={idx} className="bg-qx-surface/50 border border-gray-200 p-6 rounded-2xl">
+                <div key={idx} className="bg-white/5 border border-white/10 p-6 rounded-2xl">
                   <div className="h-10 w-10 rounded-lg bg-qx-primary/10 border border-qx-primary/20 flex items-center justify-center text-qx-primary mb-4">
                     <Icon size={20} />
                   </div>
-                  <h5 className="text-lg font-bold text-gray-900 mb-2">{p.title}</h5>
-                  <p className="text-sm text-gray-600 leading-relaxed">{p.desc}</p>
+                  <h5 className="text-lg font-bold text-white mb-2">{p.title}</h5>
+                  <p className="text-sm text-gray-400 leading-relaxed">{p.desc}</p>
                 </div>
               );
             })}
@@ -140,7 +156,7 @@ export default function WorkforceService() {
       </section>
 
       {/* How We Deploy (Process) */}
-      <section className="py-24 border-b border-gray-200">
+      <section className="py-12 md:py-24 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h3 className="text-xs font-bold text-qx-primary tracking-widest uppercase mb-4">DEPLOYMENT JOURNEY</h3>

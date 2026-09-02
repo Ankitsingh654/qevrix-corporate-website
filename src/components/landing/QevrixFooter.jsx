@@ -15,10 +15,10 @@ export default function QevrixFooter() {
     <footer className="bg-[#FFF8F3] border-t border-orange-100 pt-12 pb-6 relative overflow-hidden font-sans">
       <div className="max-w-[1536px] mx-auto px-6 relative z-10">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-center md:text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 mb-10 text-center sm:text-left">
 
           {/* Column 1: Logo, Text, Socials */}
-          <div className="flex flex-col items-center md:items-start lg:pr-8">
+          <div className="flex flex-col items-center sm:items-start lg:pr-8">
             <Link to="/" className="inline-block mb-6 bg-[#0B1120] p-2 rounded-lg shadow-sm">
               <CompanyLogo theme="dark" size="sm" />
             </Link>
@@ -42,7 +42,7 @@ export default function QevrixFooter() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center sm:items-start">
             <h4 className="font-semibold text-qx-primary mb-5 text-[15px]">Quick Links</h4>
             <ul className="space-y-3 text-[14px] font-medium text-gray-600">
               <li>
@@ -64,26 +64,26 @@ export default function QevrixFooter() {
           </div>
 
           {/* Column 3: Services */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center sm:items-start">
             <h4 className="font-semibold text-qx-primary mb-5 text-[15px]">Services</h4>
             <ul className="space-y-3 text-[14px] font-medium text-gray-600">
               <li>
-                <button onClick={() => handleScroll('services')} className="hover:text-qx-primary transition-colors text-left">
+                <button onClick={() => handleScroll('services')} className="hover:text-qx-primary transition-colors text-center sm:text-left">
                   IT & Software Solutions
                 </button>
               </li>
               <li>
-                <button onClick={() => handleScroll('services')} className="hover:text-qx-primary transition-colors text-left">
+                <button onClick={() => handleScroll('services')} className="hover:text-qx-primary transition-colors text-center sm:text-left">
                   Workforce Support
                 </button>
               </li>
               <li>
-                <button onClick={() => handleScroll('services')} className="hover:text-qx-primary transition-colors text-left">
+                <button onClick={() => handleScroll('services')} className="hover:text-qx-primary transition-colors text-center sm:text-left">
                   Civil Project Services
                 </button>
               </li>
               <li>
-                <Link to="/services/branding-design" className="hover:text-qx-primary transition-colors text-left">
+                <Link to="/services/branding-design" className="hover:text-qx-primary transition-colors text-center sm:text-left">
                   Branding & Design
                 </Link>
               </li>
@@ -91,7 +91,7 @@ export default function QevrixFooter() {
           </div>
 
           {/* Column 4: Contact Info */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center sm:items-start">
             <h4 className="font-semibold text-qx-primary mb-5 text-[15px]">Contact Info</h4>
             <ul className="space-y-3 text-[14px] font-medium text-gray-600">
               <li className="flex items-center gap-3">

@@ -19,7 +19,7 @@ export default function CallToAction() {
         }}
       ></div>
 
-      <div className="max-w-[1536px] mx-auto px-10 py-12 md:py-16 flex flex-col md:flex-row items-center justify-between relative z-10">
+      <div className="max-w-[1536px] mx-auto px-6 md:px-10 py-12 md:py-16 flex flex-col md:flex-row items-center justify-between relative z-10">
         
         {/* Left Side Content */}
         <motion.div 
@@ -29,13 +29,13 @@ export default function CallToAction() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center md:text-left mb-8 md:mb-0"
         >
-          <div className="text-sm font-bold text-white/70 tracking-[0.15em] uppercase font-mono mb-3 flex items-center justify-center md:justify-start gap-2">
+          <div className="text-[12px] sm:text-sm font-bold text-white/70 tracking-[0.15em] uppercase font-mono mb-3 flex items-center justify-center md:justify-start gap-2">
             <span className="text-white/40">//</span> LET'S BUILD TOMORROW
           </div>
-          <h2 className="text-4xl md:text-[44px] font-bold text-white mb-3 tracking-tight">
+          <h2 className="text-3xl md:text-[44px] font-bold text-white mb-3 tracking-tight">
             Ready to build with QEVRIX?
           </h2>
-          <p className="text-white/80 text-[16px] font-medium tracking-wide">
+          <p className="text-white/80 text-[15px] sm:text-[16px] font-medium tracking-wide">
             Let's connect and create solutions that power progress.
           </p>
         </motion.div>

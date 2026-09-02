@@ -288,7 +288,7 @@ export default function Contact({ initialService }) {
   const currentConfig = categoryConfig[selectedService] || categoryConfig["General Enquiry"];
 
   return (
-    <section id="contact" className="py-24 bg-qx-background relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-24 bg-qx-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-qx-primary/5 blur-[140px] rounded-full pointer-events-none" />
 

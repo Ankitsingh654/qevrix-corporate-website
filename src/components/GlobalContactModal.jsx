@@ -132,7 +132,7 @@ export default function GlobalContactModal() {
       if (!formData.workLocation.trim()) errors.workLocation = "Required"; // Project Location
       if (!formData.message.trim()) errors.message = "Required"; // Project Description
     } else if (selectedCategory === "BRANDING & DESIGN") {
-      if (!formData.requirementType.trim()) errors.requirementType = "Required";
+      if (!(formData.requirementType || "").trim()) errors.requirementType = "Required";
       if (!formData.message.trim()) errors.message = "Required"; // Project Description
     } else if (selectedCategory === "GENERAL") {
       if (!formData.technology.trim()) errors.technology = "Required"; // Reusing for Subject
@@ -158,7 +158,8 @@ export default function GlobalContactModal() {
     }
 
     setStatus('loading');
-    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "";
+    const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+    const API_BASE_URL = isLocal ? (process.env.REACT_APP_API_BASE_URL || "") : "";
 
     // Mapping custom fields to message for existing backend compatibility
     let formattedMessage = `Category: ${selectedCategory}\n\n`;
